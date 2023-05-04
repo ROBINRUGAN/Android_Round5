@@ -1,0 +1,195 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@mipmap/login_background"
+    android:clipToPadding="true"
+    android:fitsSystemWindows="false"
+    tools:context=".LoginActivity">
+
+    <TextView
+        android:id="@+id/gotoRegister"
+        android:layout_width="178dp"
+        android:layout_height="38dp"
+        android:fontFamily="@font/mew_store"
+        android:text="还没有账号？去注册！"
+        android:shadowColor="#00FFFFFF"
+        android:textColor="#4276B0"
+        android:textSize="15dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.927"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.862" />
+
+    <EditText
+        android:id="@+id/phone"
+        android:layout_width="356dp"
+        android:layout_height="70dp"
+        android:background="@mipmap/input"
+        android:fontFamily="@font/mew_store"
+        android:hint="请输入手机号"
+        android:singleLine="true"
+        android:maxLength="11"
+        android:inputType="phone"
+        android:paddingStart="20dp"
+        android:textColor="#222222"
+        android:textColorHint="#92A0C0"
+        android:textSize="22sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.49"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.532"
+        tools:ignore="RtlSymmetry"
+
+
+        >
+
+    </EditText>
+
+    <EditText
+        android:id="@+id/usernmae"
+        android:layout_width="356dp"
+        android:layout_height="70dp"
+        android:background="@mipmap/input"
+        android:fontFamily="@font/mew_store"
+        android:hint="请输入用户名"
+        android:singleLine="true"
+        android:maxLength="28"
+        android:paddingStart="20dp"
+        android:textColor="#222222"
+        android:textColorHint="#92A0C0"
+        android:textSize="22sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.49"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.532"
+        tools:ignore="RtlSymmetry"
+
+        android:visibility="invisible"
+        >
+
+    </EditText>
+
+    <ImageView
+        android:id="@+id/privacy"
+        android:layout_width="326dp"
+        android:layout_height="23dp"
+        android:src="@mipmap/privacy_policy"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.909">
+
+    </ImageView>
+
+    <TextView
+        android:id="@+id/changeLoginWay"
+        android:layout_width="178dp"
+        android:layout_height="38dp"
+        android:fontFamily="@font/mew_store"
+        android:text="用户名密码登录"
+        android:textColor="#4276B0"
+        android:textSize="15dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.068"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.861" />
+
+    <Button
+        android:id="@+id/login"
+        android:layout_width="356dp"
+        android:layout_height="70dp"
+        android:text="立即登录"
+        android:textAlignment="center"
+        android:textAllCaps="false"
+        android:fontFamily="@font/mew_store"
+        android:textColor="@color/mew_store_words_color"
+        android:textSize="25dp"
+        android:background="@drawable/login_btn_click"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.49"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.779" />
+
+    <EditText
+        android:id="@+id/code"
+        android:layout_width="356dp"
+        android:layout_height="70dp"
+        android:background="@mipmap/input"
+        android:fontFamily="@font/mew_store"
+        android:hint="请输入验证码"
+        android:singleLine="true"
+        android:maxLength="6"
+        android:inputType="number"
+        android:paddingStart="20dp"
+        android:textColor="#222222"
+        android:textColorHint="#92A0C0"
+        android:textSize="22sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.49"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.655"
+    >
+
+    </EditText>
+
+    <EditText
+        android:id="@+id/password"
+        android:layout_width="356dp"
+        android:layout_height="70dp"
+        android:background="@mipmap/input"
+        android:fontFamily="@font/mew_store"
+        android:hint="请输入密码"
+        android:singleLine="true"
+        android:maxLength="28"
+        android:inputType="textVisiblePassword"
+        android:paddingStart="20dp"
+        android:textColor="#222222"
+        android:textColorHint="#92A0C0"
+        android:textSize="22sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.49"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.655"
+        android:visibility="invisible">
+
+    </EditText>
+
+    <Button
+        android:id="@+id/getCode"
+        android:layout_width="139dp"
+        android:layout_height="48dp"
+        android:background="#00FFFFFF"
+        android:fontFamily="@font/mew_store"
+        android:text="获取验证码"
+        android:textColor="@color/mew_store_words_color"
+        android:textSize="20dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.897"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.652"
+
+        />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
