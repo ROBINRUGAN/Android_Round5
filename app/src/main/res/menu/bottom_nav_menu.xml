@@ -1,29 +1,23 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
-
     <item
         android:id="@+id/navigation_home"
-        android:icon="@drawable/ic_home_black_24dp"
+        android:icon="@mipmap/nav_home"
         android:title="闲猫" />
-
     <item
         android:id="@+id/navigation_deal"
-        android:icon="@drawable/ic_dashboard_black_24dp"
+        android:icon="@mipmap/nav_deal"
         android:title="交易" />
-
     <item
         android:id="@+id/navigation_upload"
-        android:icon="@drawable/ic_notifications_black_24dp"
-        android:title="上传" />
-
+        android:icon="@mipmap/nav_upload"
+        android:title="" />
     <item
         android:id="@+id/navigation_message"
-        android:icon="@drawable/ic_notifications_black_24dp"
+        android:icon="@mipmap/nav_message"
         android:title="消息" />
-
     <item
         android:id="@+id/navigation_me"
-        android:icon="@drawable/ic_notifications_black_24dp"
+        android:icon="@mipmap/nav_me"
         android:title="我的" />
-
 </menu>
