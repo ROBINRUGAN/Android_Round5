@@ -1,15 +1,20 @@
 package com.example.android_round5
 
+import android.app.ActivityOptions
+import android.content.Intent
 import android.os.Bundle
 import android.os.CountDownTimer
 import android.transition.Explode
 import android.transition.Fade
 import android.transition.Slide
+import android.util.Log
 import android.view.Gravity
 import android.view.Window
 import android.widget.Button
 import androidx.appcompat.app.AppCompatActivity
 import kotlinx.android.synthetic.main.activity_login.*
+import kotlinx.android.synthetic.main.activity_login.getCode
+import kotlinx.android.synthetic.main.activity_register.*
 
 class RegisterActivity : AppCompatActivity() {
 
@@ -28,6 +33,7 @@ class RegisterActivity : AppCompatActivity() {
 //        window.exitTransition = Fade()
 
         setContentView(R.layout.activity_register)
+
         /**
          * 这部分用来监听验证码的倒计时，并设置时间
          */
@@ -35,6 +41,14 @@ class RegisterActivity : AppCompatActivity() {
         time = TimeCount(60000, 1000)
         mTimeButton!!.setOnClickListener {
             time!!.start()
+        }
+
+        /**
+         * 注册成功就直接进入首页，无需重复登录
+         */
+        register.setOnClickListener{
+            val intent =Intent(this@RegisterActivity,MainActivity::class.java)
+            this@RegisterActivity.startActivity(intent,ActivityOptions.makeSceneTransitionAnimation(this).toBundle())
         }
     }
 
@@ -60,5 +74,17 @@ class RegisterActivity : AppCompatActivity() {
             mTimeButton!!.isEnabled = true
             mTimeButton!!.text = "重新获取"
         }
+    }
+    override fun onPause() {
+        super.onPause()
+        object : CountDownTimer(2300, 1000) {
+            override fun onTick(millisUntilFinished: Long) {
+                Log.e("MEWWW", millisUntilFinished.toString())
+            }
+
+            override fun onFinish() {
+                finish()
+            }
+        }.start()
     }
 }

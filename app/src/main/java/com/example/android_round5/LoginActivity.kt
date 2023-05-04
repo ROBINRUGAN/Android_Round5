@@ -1,20 +1,22 @@
 package com.example.android_round5
 
 import android.app.ActivityOptions
+import android.content.ContentValues.TAG
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.CountDownTimer
+import android.util.Log
 import android.view.View.*
 import android.widget.Button
-import android.widget.TextView
 import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
 import kotlinx.android.synthetic.main.activity_login.*
 import kotlinx.android.synthetic.main.activity_login.code
 import kotlinx.android.synthetic.main.activity_login.getCode
 import kotlinx.android.synthetic.main.activity_login.password
 import kotlinx.android.synthetic.main.activity_login.phone
 import kotlinx.android.synthetic.main.activity_register.*
+import kotlin.math.log
 
 class LoginActivity : AppCompatActivity() {
     private var mTimeButton: Button? = null
@@ -36,12 +38,24 @@ class LoginActivity : AppCompatActivity() {
          * 跳转去注册页
          */
         gotoRegister.setOnClickListener {
-            Toast.makeText(this, "准备为你跳转注册页", Toast.LENGTH_SHORT).show()
+            Toast.makeText(this@LoginActivity, "准备为你跳转注册页", Toast.LENGTH_SHORT).show()
             val intent = Intent(this@LoginActivity, RegisterActivity::class.java)
             this@LoginActivity.startActivity(
                 intent, ActivityOptions.makeSceneTransitionAnimation(this).toBundle()
-            );
+            )
 
+        }
+
+
+        /**
+         * 跳转进入主程序，并落在主页
+         */
+        login.setOnClickListener{
+            Toast.makeText(this@LoginActivity, "欢迎进入MewStore!!ヾ(≧▽≦*)o", Toast.LENGTH_SHORT).show()
+            val intent = Intent(this@LoginActivity,MainActivity::class.java)
+            this@LoginActivity.startActivity(
+                intent,ActivityOptions.makeSceneTransitionAnimation(this).toBundle()
+            )
         }
 
         /**
@@ -88,5 +102,18 @@ class LoginActivity : AppCompatActivity() {
             mTimeButton!!.isEnabled = true
             mTimeButton!!.text = "重新获取"
         }
+    }
+
+    override fun onPause() {
+        super.onPause()
+        object : CountDownTimer(2300, 1000) {
+            override fun onTick(millisUntilFinished: Long) {
+                Log.e("MEWWW", millisUntilFinished.toString())
+            }
+
+            override fun onFinish() {
+                finish()
+            }
+        }.start()
     }
 }

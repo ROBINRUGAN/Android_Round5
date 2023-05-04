@@ -19,7 +19,7 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-//   binding = ActivityMainBinding.inflate(layoutInflater)
+   binding = ActivityMainBinding.inflate(layoutInflater)
 //        在需要启动的 activity 中开启动画的特征
 //        getWindow().requestFeature(Window.FEATURE_CONTENT_TRANSITIONS);
 //        window.enterTransition = Explode()

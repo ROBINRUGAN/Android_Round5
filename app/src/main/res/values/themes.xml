@@ -13,8 +13,6 @@
         <item name="android:statusBarColor">#6D87B2</item>
 
         <!-- Customize your theme here. -->
-        <item name="android:windowContentTransitions">true</item>
         <item name="android:windowEnterTransition">@transition/fade</item>
-        <item name="android:windowExitTransition">@transition/fade</item>
     </style>
 </resources>
