@@ -11,7 +11,7 @@
         <item name="colorOnSecondary">@color/black</item>
         <!-- Status bar color. -->
         <item name="android:statusBarColor">#6D87B2</item>
-
+<item name="fontFamily" >@font/mew_store</item>
         <!-- Customize your theme here. -->
         <item name="android:windowEnterTransition">@transition/fade</item>
     </style>

@@ -8,18 +8,28 @@
     <fragment
         android:id="@+id/navigation_home"
         android:name="com.example.android_round5.ui.home.HomeFragment"
-        android:label="@string/title_home"
+        android:label="闲猫"
         tools:layout="@layout/fragment_home" />
 
     <fragment
-        android:id="@+id/navigation_dashboard"
-        android:name="com.example.android_round5.ui.dashboard.DashboardFragment"
-        android:label="@string/title_dashboard"
-        tools:layout="@layout/fragment_dashboard" />
+        android:id="@+id/navigation_deal"
+        android:name="com.example.android_round5.ui.deal.DealFragment"
+        android:label="交易"
+        tools:layout="@layout/fragment_deal" />
 
     <fragment
-        android:id="@+id/navigation_notifications"
-        android:name="com.example.android_round5.ui.notifications.NotificationsFragment"
-        android:label="@string/title_notifications"
-        tools:layout="@layout/fragment_notifications" />
+        android:id="@+id/navigation_upload"
+        android:name="com.example.android_round5.ui.upload.UploadFragment"
+        android:label="上传"
+        tools:layout="@layout/fragment_upload" />
+    <fragment
+        android:id="@+id/navigation_message"
+        android:name="com.example.android_round5.ui.message.MessageFragment"
+        android:label="消息"
+        tools:layout="@layout/fragment_message" />
+    <fragment
+        android:id="@+id/navigation_me"
+        android:name="com.example.android_round5.ui.me.MeFragment"
+        android:label="我的"
+        tools:layout="@layout/fragment_me" />
 </navigation>
