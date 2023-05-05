@@ -8,12 +8,11 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.GridLayoutManager
-import androidx.recyclerview.widget.LinearLayoutManager
-import com.example.android_round5.entity.HomeItem
-import com.example.android_round5.util.appContext
 import com.example.android_round5.R
 import com.example.android_round5.adapter.HomeItemAdapter
 import com.example.android_round5.databinding.FragmentHomeBinding
+import com.example.android_round5.entity.HomeItem
+
 
 class HomeFragment : Fragment() {
 
@@ -28,6 +27,7 @@ class HomeFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
+
         val homeViewModel =
             ViewModelProvider(this).get(HomeViewModel::class.java)
         _binding = FragmentHomeBinding.inflate(inflater, container, false)
@@ -39,12 +39,13 @@ class HomeFragment : Fragment() {
 //        homeViewModel.text.observe(viewLifecycleOwner) {
 //            textView.text = it
 //        }
-initHomeItemList()
-        val layoutManager = GridLayoutManager(this.context,2)
+        initHomeItemList()
+        val layoutManager = GridLayoutManager(this.context, 2)
         binding.homeRecyclerview.layoutManager = layoutManager
         Log.d("我要输出了？", homeItemList.toString())
         val adapter = HomeItemAdapter(homeItemList!!, this@HomeFragment)
         binding.homeRecyclerview.adapter = adapter
+
         return root
     }
 
@@ -52,15 +53,78 @@ initHomeItemList()
         super.onDestroyView()
         _binding = null
     }
-     fun initHomeItemList()
-    {
-        homeItemList.add(HomeItem(R.mipmap.mew_radius,"这是一个标题",114514.00,100,R.mipmap.mew_round,"闲猫吃咸鱼"))
-        homeItemList.add(HomeItem(R.mipmap.mew_radius,"这是一个标题",114514.00,100,R.mipmap.mew_round,"闲猫吃咸鱼"))
-        homeItemList.add(HomeItem(R.mipmap.mew_radius,"这是一个标题",114514.00,100,R.mipmap.mew_round,"闲猫吃咸鱼"))
-        homeItemList.add(HomeItem(R.mipmap.mew_radius,"这是一个标题",114514.00,100,R.mipmap.mew_round,"闲猫吃咸鱼"))
-        homeItemList.add(HomeItem(R.mipmap.mew_radius,"这是一个标题",114514.00,100,R.mipmap.mew_round,"闲猫吃咸鱼"))
-        homeItemList.add(HomeItem(R.mipmap.mew_radius,"这是一个标题",114514.00,100,R.mipmap.mew_round,"闲猫吃咸鱼"))
-        homeItemList.add(HomeItem(R.mipmap.mew_radius,"这是一个标题",114514.00,100,R.mipmap.mew_round,"闲猫吃咸鱼"))
+
+    fun initHomeItemList() {
+        homeItemList.add(
+            HomeItem(
+                R.mipmap.mew,
+                "这是一个标题",
+                114514.00,
+                100,
+                R.mipmap.mew,
+                "闲猫吃咸鱼"
+            )
+        )
+        homeItemList.add(
+            HomeItem(
+                R.mipmap.mew,
+                "这是一个标题",
+                114514.00,
+                100,
+                R.mipmap.mew,
+                "闲猫吃咸鱼"
+            )
+        )
+        homeItemList.add(
+            HomeItem(
+                R.mipmap.mew,
+                "这是一个标题",
+                114514.00,
+                100,
+                R.mipmap.mew,
+                "闲猫吃咸鱼"
+            )
+        )
+        homeItemList.add(
+            HomeItem(
+                R.mipmap.mew,
+                "这是一个标题",
+                114514.00,
+                100,
+                R.mipmap.mew,
+                "闲猫吃咸鱼"
+            )
+        )
+        homeItemList.add(
+            HomeItem(
+                R.mipmap.mew,
+                "这是一个标题",
+                114514.00,
+                100,
+                R.mipmap.mew,
+                "闲猫吃咸鱼"
+            )
+        )
+        homeItemList.add(
+            HomeItem(
+                R.mipmap.mew,
+                "这是一个标题",
+                114514.00,
+                100,
+                R.mipmap.mew,
+                "闲猫吃咸鱼"
+            )
+        )
+        homeItemList.add(
+            HomeItem(
+                R.mipmap.mew,
+                "这是一个标题",
+                114514.00,
+                100,
+                R.mipmap.mew,
+                "闲猫吃咸鱼"
+            )
+        )
 
 
     }
