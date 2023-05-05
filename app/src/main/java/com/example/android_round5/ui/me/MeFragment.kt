@@ -27,11 +27,6 @@ class MeFragment : Fragment() {
 
         _binding = FragmentMeBinding.inflate(inflater, container, false)
         val root: View = binding.root
-
-        val textView: TextView = binding.textMe
-        meViewModel.text.observe(viewLifecycleOwner) {
-            textView.text = it
-        }
         return root
     }
 
