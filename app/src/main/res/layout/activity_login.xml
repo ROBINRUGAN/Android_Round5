@@ -20,15 +20,15 @@
         android:textSize="15dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.927"
+        app:layout_constraintHorizontal_bias="1"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.862" />
+        app:layout_constraintVertical_bias="0.699" />
 
     <EditText
         android:id="@+id/phone"
-        android:layout_width="356dp"
-        android:layout_height="70dp"
+        android:layout_width="316dp"
+        android:layout_height="55dp"
         android:background="@mipmap/input"
         android:fontFamily="@font/mew_store"
         android:hint="请输入手机号"
@@ -54,8 +54,8 @@
 
     <EditText
         android:id="@+id/usernmae"
-        android:layout_width="356dp"
-        android:layout_height="70dp"
+        android:layout_width="316dp"
+        android:layout_height="55dp"
         android:background="@mipmap/input"
         android:fontFamily="@font/mew_store"
         android:hint="请输入用户名"
@@ -80,15 +80,15 @@
 
     <ImageView
         android:id="@+id/privacy"
-        android:layout_width="326dp"
-        android:layout_height="23dp"
+        android:layout_width="270dp"
+        android:layout_height="wrap_content"
         android:src="@mipmap/privacy_policy"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.909">
+        app:layout_constraintVertical_bias="0.849">
 
     </ImageView>
 
@@ -105,12 +105,12 @@
         app:layout_constraintHorizontal_bias="0.178"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.861" />
+        app:layout_constraintVertical_bias="0.699" />
 
     <Button
         android:id="@+id/login"
-        android:layout_width="356dp"
-        android:layout_height="70dp"
+        android:layout_width="316dp"
+        android:layout_height="55dp"
         android:text="立即登录"
         android:textAlignment="center"
         android:textAllCaps="false"
@@ -123,12 +123,12 @@
         app:layout_constraintHorizontal_bias="0.49"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.779" />
+        app:layout_constraintVertical_bias="0.800" />
 
     <EditText
         android:id="@+id/code"
-        android:layout_width="356dp"
-        android:layout_height="70dp"
+        android:layout_width="316dp"
+        android:layout_height="55dp"
         android:background="@mipmap/input"
         android:fontFamily="@font/mew_store"
         android:hint="请输入验证码"
@@ -144,15 +144,15 @@
         app:layout_constraintHorizontal_bias="0.49"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.655"
+        app:layout_constraintVertical_bias="0.625"
     >
 
     </EditText>
 
     <EditText
         android:id="@+id/password"
-        android:layout_width="356dp"
-        android:layout_height="70dp"
+        android:layout_width="316dp"
+        android:layout_height="55dp"
         android:background="@mipmap/input"
         android:fontFamily="@font/mew_store"
         android:hint="请输入密码"
@@ -168,7 +168,7 @@
         app:layout_constraintHorizontal_bias="0.49"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.655"
+        app:layout_constraintVertical_bias="0.625"
         android:visibility="invisible">
 
     </EditText>
@@ -184,10 +184,10 @@
         android:textSize="20dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.870"
+        app:layout_constraintHorizontal_bias="0.830"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.652"
+        app:layout_constraintVertical_bias="0.625"
 
         />
 

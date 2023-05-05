@@ -54,78 +54,20 @@ class HomeFragment : Fragment() {
         _binding = null
     }
 
-    fun initHomeItemList() {
-        homeItemList.add(
-            HomeItem(
-                R.mipmap.mew,
-                "这是一个标题",
-                114514.00,
-                100,
-                R.mipmap.mew,
-                "闲猫吃咸鱼"
+    fun initHomeItemList()
+    {
+        repeat(10)
+        {
+            homeItemList.add(
+                HomeItem(
+                    R.mipmap.mew,
+                    "这是一个标题",
+                    114514.00,
+                    100,
+                    R.mipmap.mew,
+                    "闲猫吃咸鱼"
+                )
             )
-        )
-        homeItemList.add(
-            HomeItem(
-                R.mipmap.mew,
-                "这是一个标题",
-                114514.00,
-                100,
-                R.mipmap.mew,
-                "闲猫吃咸鱼"
-            )
-        )
-        homeItemList.add(
-            HomeItem(
-                R.mipmap.mew,
-                "这是一个标题",
-                114514.00,
-                100,
-                R.mipmap.mew,
-                "闲猫吃咸鱼"
-            )
-        )
-        homeItemList.add(
-            HomeItem(
-                R.mipmap.mew,
-                "这是一个标题",
-                114514.00,
-                100,
-                R.mipmap.mew,
-                "闲猫吃咸鱼"
-            )
-        )
-        homeItemList.add(
-            HomeItem(
-                R.mipmap.mew,
-                "这是一个标题",
-                114514.00,
-                100,
-                R.mipmap.mew,
-                "闲猫吃咸鱼"
-            )
-        )
-        homeItemList.add(
-            HomeItem(
-                R.mipmap.mew,
-                "这是一个标题",
-                114514.00,
-                100,
-                R.mipmap.mew,
-                "闲猫吃咸鱼"
-            )
-        )
-        homeItemList.add(
-            HomeItem(
-                R.mipmap.mew,
-                "这是一个标题",
-                114514.00,
-                100,
-                R.mipmap.mew,
-                "闲猫吃咸鱼"
-            )
-        )
-
-
+        }
     }
 }

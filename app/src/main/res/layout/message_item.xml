@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?><!--这个background引用的是另外写的一个设置背景效果为圆角的xml文件，我前面的文章有写过，有兴趣的可以看看-->
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginRight="10dp"
+        android:orientation="horizontal">
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="10dp"
+            android:layout_marginRight="10dp"
+            app:cardCornerRadius="20dp">
+
+            <ImageView
+                android:id="@+id/message_item_avatar"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:src="@color/purple_500" />
+        </androidx.cardview.widget.CardView>
+
+
+
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    >
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    >
+    <!--昵称区域-->
+    <TextView
+        android:layout_weight="2.5"
+        android:id="@+id/message_item_username"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:gravity="bottom"
+        android:layout_marginTop="2dp"
+        android:singleLine="true"
+        android:text="闲猫吃咸鱼"
+        android:textColor="#333333"
+        android:textSize="20dp" />
+    <!--时间区域-->
+    <TextView
+        android:layout_weight="1"
+        android:id="@+id/message_item_time"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_gravity="center_vertical"
+        android:layout_marginTop="2dp"
+        android:gravity="bottom"
+        android:singleLine="true"
+        android:text="昨天 13:25"
+        android:textColor="#333333"
+        android:textSize="15dp" />
+</LinearLayout>
+    <TextView
+        android:id="@+id/message_item_content"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_gravity="center_horizontal"
+        android:singleLine="true"
+        android:gravity="center_vertical"
+        android:paddingRight="21dp"
+        android:text="你好啊你好啊mewmewmewmewmewmewwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwww"
+        android:textColor="@color/mew_store_words_color"
+
+        android:textSize="12dp" />
+</LinearLayout>
+    </LinearLayout>
+</LinearLayout>

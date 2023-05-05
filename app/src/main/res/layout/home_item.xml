@@ -19,8 +19,8 @@
 
         <ImageView
             android:id="@+id/home_item_img"
-            android:layout_width="180dp"
-            android:layout_height="180dp"
+            android:layout_width="160dp"
+            android:layout_height="160dp"
             android:src="@color/purple_500" />
     </androidx.cardview.widget.CardView>
 
@@ -55,6 +55,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="200"
+            android:maxWidth="80dp"
+            android:singleLine="true"
             android:textColor="#D32F2F"
             android:textSize="20dp" />
 
@@ -81,18 +83,9 @@
         android:layout_marginRight="10dp"
         android:orientation="horizontal">
 
-        <!--        TODO-->
-        <!--头像图片，这个CricleImageView是另写的一个类继承自ImageView，用来实现圆形的图片效果和缩放效果的-->
-        <!--        <com.example.dumb.CircleImageView-->
-        <!--            android:id="@+id/home_item_head"-->
-        <!--            android:layout_width="30dp"-->
-        <!--            android:layout_height="30dp"-->
-        <!--            android:layout_margin="8dp"-->
-        <!--            android:src="@drawable/user"-->
-        <!--            android:scaleType="centerCrop"-->
-        <!--            android:layout_gravity="center"/>-->
         <androidx.cardview.widget.CardView
-            android:layout_width="wrap_content"
+            android:layout_weight="1"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginBottom="10dp"
             app:cardCornerRadius="20dp">
@@ -105,8 +98,9 @@
 
         <!--昵称区域-->
         <TextView
+            android:layout_weight="3"
             android:id="@+id/home_item_username"
-            android:layout_width="70dp"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_gravity="center_vertical"
             android:layout_marginLeft="5dp"
@@ -117,29 +111,18 @@
             android:text="闲猫吃咸鱼"
             android:textColor="#333333"
             android:textSize="12dp" />
-        <!--点赞区域-->
-        <LinearLayout
-            android:id="@+id/home_item_good"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_vertical"
-            android:layout_marginTop="2dp"
-            android:layout_marginRight="8dp"
-            android:layout_marginBottom="8dp"
-            android:gravity="right"
-
-            android:orientation="vertical">
-
 
             <TextView
                 android:id="@+id/home_item_seller_status"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_gravity="center_horizontal"
+                android:layout_gravity="center"
+                android:layout_marginTop="2dp"
+                android:layout_marginBottom="8dp"
                 android:text="信用极好"
                 android:textColor="@color/mew_store_words_color"
 
-                android:textSize="12dp" />
-        </LinearLayout>
+                android:textSize="8dp" />
+
     </LinearLayout>
 </LinearLayout>
