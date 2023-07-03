@@ -158,7 +158,7 @@
         android:hint="请输入密码"
         android:singleLine="true"
         android:maxLength="28"
-        android:inputType="textVisiblePassword"
+        android:inputType="textPassword"
         android:paddingStart="20dp"
         android:textColor="#222222"
         android:textColorHint="#92A0C0"

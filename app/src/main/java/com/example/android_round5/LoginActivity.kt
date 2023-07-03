@@ -74,18 +74,24 @@ class LoginActivity : AppCompatActivity() {
         login.setOnClickListener{
 
 
-            val map = jsonOf(
+            val loginByUsernameData = jsonOf(
                 "username" to login_username.text.toString(),
                 "password" to login_password.text.toString()
             )
-            if(map!=null)
+            val loginByPhoneData = jsonOf(
+                "phone_number" to login_phone.text.toString(),
+                "code" to login_code.text.toString()
+            )
+            //如果用户名和密码不为空，说明是用户名登录
+            if(login_username.text?.isNotBlank() == true && login_password.text?.isNotBlank() == true)
             {
-                appService.LoginByUsername(map).enqueue(object : Callback<Login>
+                appService.LoginByUsername(loginByUsernameData).enqueue(object : Callback<Login>
                 {
                     override fun onResponse(call: Call<Login>, response: Response<Login>) {
                         val loginData = response.body()
-                        if (loginData != null) {
-                            Log.d("MEWWW", loginData.message.toString())
+                        if(loginData==null)
+                        {
+                            Toast.makeText(this@LoginActivity,"用户名或密码错误！",Toast.LENGTH_SHORT).show()
                         }
                         if(loginData!=null)
                         {
@@ -110,7 +116,45 @@ class LoginActivity : AppCompatActivity() {
                         t.printStackTrace()
                     }
                 })
+            }
+            //如果手机号和验证码不为空，说明是手机号登录
+            else if(login_phone.text?.isNotBlank() == true && login_code.text?.isNotBlank() == true)
+            {
+//                Toast.makeText(this@LoginActivity, "wqehiqhdiwqhd", Toast.LENGTH_SHORT).show()
 
+                appService.LoginByPhone(loginByPhoneData).enqueue(object : Callback<Login>
+                {
+                    override fun onResponse(call: Call<Login>, response: Response<Login>) {
+                        val loginData = response.body()
+                        if (loginData != null) {
+                            Log.d("MEWWW", loginData.message)
+                        }
+                        if(loginData!=null)
+                        {
+                            // 存储令牌
+                            val sharedPreferences = this@LoginActivity.getSharedPreferences("my_app_prefs", Context.MODE_PRIVATE)
+                            val editor = sharedPreferences.edit()
+                            editor.putString("token", loginData.token)
+                            editor.apply()
+                            Toast.makeText(this@LoginActivity,loginData.message,Toast.LENGTH_SHORT)
+
+                            Toast.makeText(this@LoginActivity, "欢迎进入MewStore!!ヾ(≧▽≦*)o", Toast.LENGTH_SHORT).show()
+                            val intent = Intent(this@LoginActivity,MainActivity::class.java)
+                            this@LoginActivity.startActivity(
+                                intent,ActivityOptions.makeSceneTransitionAnimation(this@LoginActivity).toBundle()
+                            )
+                            finish()
+                        }
+
+                    }
+                    override fun onFailure(call: Call<Login>, t: Throwable) {
+                        t.printStackTrace()
+                    }
+                })
+            }
+            else
+            {
+                Toast.makeText(this@LoginActivity,"输入不能为空！",Toast.LENGTH_SHORT).show()
             }
 
         }
@@ -121,16 +165,20 @@ class LoginActivity : AppCompatActivity() {
         changeLoginWay.setOnClickListener {
             if (changeLoginWay.text.equals("用户名密码登录")) {
                 login_phone.visibility = INVISIBLE
+                login_phone.setText(null)
                 login_username.visibility = VISIBLE
                 login_code.visibility = INVISIBLE
+                login_code.setText(null)
                 login_password.visibility = VISIBLE
                 login_getCode.visibility = INVISIBLE
                 changeLoginWay.text = "手机号快捷登录"
             } else {
                 login_phone.visibility = VISIBLE
                 login_username.visibility = INVISIBLE
+                login_username.setText(null)
                 login_code.visibility = VISIBLE
                 login_password.visibility = INVISIBLE
+                login_password.setText(null)
                 login_getCode.visibility = VISIBLE
                 changeLoginWay.text = "用户名密码登录"
             }

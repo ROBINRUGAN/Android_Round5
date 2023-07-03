@@ -56,6 +56,7 @@ class HomeFragment : Fragment() {
 
     fun initHomeItemList()
     {
+
         repeat(10)
         {
             homeItemList.add(

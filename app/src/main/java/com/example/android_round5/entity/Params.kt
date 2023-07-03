@@ -36,3 +36,23 @@ data class UserInfoUser(
     val status: Int,
     val username: String
 )
+data class HomeList(
+    val code: Int,
+    val `data`: List<HomeData>,
+    val message: String
+)
+
+data class HomeData(
+    val add_time: String,
+    val content: String,
+    val game: String,
+    val id: String,
+    val picture_url: String,
+    val price: String,
+    val seller_id: String,
+    val seller_nickname: String,
+    val seller_profile_photo: String,
+    val status: Int,
+    val title: String,
+    val view: Int
+)
