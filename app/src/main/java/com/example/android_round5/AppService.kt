@@ -48,6 +48,13 @@ interface AppService {
     @GET("/guess")
     fun GetGuessLike(): retrofit2.Call<HomeList>
 
+    /**
+     * 获取用户信息
+     */
+    @GET("/users")
+    fun GetUserInfo(): retrofit2.Call<UserInfo>
+
+
 
 //    @POST("register")
 //    @Headers("Content-Type: application/json")
