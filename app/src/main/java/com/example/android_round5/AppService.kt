@@ -42,6 +42,12 @@ interface AppService {
     @GET("/home-page?page=1&size=114514")
     fun GetHomePage(): retrofit2.Call<HomeList>
 
+    /**
+     * 获取猜你喜欢
+     */
+    @GET("/guess")
+    fun GetGuessLike(): retrofit2.Call<HomeList>
+
 
 //    @POST("register")
 //    @Headers("Content-Type: application/json")

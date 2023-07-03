@@ -1,5 +1,6 @@
 package com.example.android_round5.adapter
 
+import android.content.Intent
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -8,6 +9,7 @@ import android.widget.TextView
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
+import com.example.android_round5.DetailActivity
 import com.example.android_round5.R
 import com.example.android_round5.entity.HomeData
 
@@ -36,22 +38,28 @@ class HomeItemAdapter(val homeItemList: ArrayList<HomeData>, val fragment: Fragm
         /**
          * TODO:这个是点击item时能获取到相应下标
          */
-//        viewHolder.itemView.setOnClickListener{
-//            val position = viewHolder.bindingAdapterPosition
-//            val project = projectList[position]
+        viewHolder.itemView.setOnClickListener {
+            val position = viewHolder.bindingAdapterPosition
+            val homeItem = homeItemList[position]
 
-        /**
-         * TODO:这个是进入商品详情页的跳转
-         */
-//            val intent = Intent(view.context,DetailActivity::class.java)
-//            intent.putExtra("project.title",project.title)
-//            intent.putExtra("project.imageurl",project.imageurl)
-//            intent.putExtra("project.content",project.content)
-//            intent.putExtra("project.price",project.price)
-//            intent.putExtra("project.telephone",project.telephone)
-//            intent.putExtra("project.id",project.id)
-//            intent.putExtra("user.id",project.userid)
-//            view.context.startActivity(intent)
+            /**
+             * TODO:这个是进入商品详情页的跳转
+             */
+            val intent = Intent(view.context, DetailActivity::class.java)
+            intent.putExtra("homeItem.add_time", homeItem.add_time)
+            intent.putExtra("homeItem.content", homeItem.content)
+            intent.putExtra("homeItem.game", homeItem.game)
+            intent.putExtra("homeItem.id", homeItem.id)
+            intent.putExtra("homeItem.picture_url", homeItem.picture_url)
+            intent.putExtra("homeItem.price", homeItem.price)
+            intent.putExtra("homeItem.seller_id", homeItem.seller_id)
+            intent.putExtra("homeItem.seller_nickname", homeItem.seller_nickname)
+            intent.putExtra("homeItem.seller_profile_photo", homeItem.seller_profile_photo)
+            intent.putExtra("homeItem.status", homeItem.status)
+            intent.putExtra("homeItem.title", homeItem.title)
+            intent.putExtra("homeItem.view", homeItem.view.toString())
+            view.context.startActivity(intent)
+        }
         return viewHolder
     }
 

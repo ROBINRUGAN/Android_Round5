@@ -22,10 +22,10 @@
         app:layout_constraintVertical_bias="0.018" />
 
     <ImageView
+        android:id="@+id/guess"
         android:layout_width="66dp"
         android:layout_height="66dp"
         android:src="@mipmap/cai_ni_xi_huan_img"
-
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.046"
@@ -36,7 +36,8 @@
         app:layout_constraintVertical_bias="0.381" />
 
     <ImageView
-        android:id="@+id/imageView"
+
+        android:id="@+id/news"
         android:layout_width="66dp"
         android:layout_height="66dp"
         android:src="@mipmap/jin_ri_shang_xin_img"
@@ -50,7 +51,7 @@
         app:layout_constraintVertical_bias="0.378" />
 
     <ImageView
-        android:id="@+id/imageView2"
+        android:id="@+id/live"
         android:layout_width="66dp"
         android:layout_height="66dp"
         android:src="@mipmap/zhi_bo_img"
@@ -64,6 +65,7 @@
         app:layout_constraintVertical_bias="0.378" />
 
     <ImageView
+        android:id="@+id/dazzing"
         android:layout_width="66dp"
         android:layout_height="66dp"
         android:src="@mipmap/shai_hao_wu_img"

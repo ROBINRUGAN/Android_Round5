@@ -6,6 +6,7 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.GridLayoutManager
@@ -15,6 +16,7 @@ import com.example.android_round5.adapter.HomeItemAdapter
 import com.example.android_round5.databinding.FragmentHomeBinding
 import com.example.android_round5.entity.HomeData
 import com.example.android_round5.entity.HomeList
+import kotlinx.android.synthetic.main.fragment_home.*
 import okhttp3.OkHttpClient
 import retrofit2.Call
 import retrofit2.Response
@@ -66,20 +68,48 @@ class HomeFragment : Fragment() {
             override fun onResponse(call: Call<HomeList>, response: Response<HomeList>) {
                 Log.d("MEWWW", response.toString())
                 homeItemList = response.body()?.data as ArrayList<HomeData>
+                val layoutManager = GridLayoutManager(requireContext(), 2)
+                binding.homeRecyclerview.layoutManager = layoutManager
+
+                val adapter = HomeItemAdapter(homeItemList, this@HomeFragment)
+                binding.homeRecyclerview.adapter = adapter
             }
 
             override fun onFailure(call: Call<HomeList>, t: Throwable) {
                 t.printStackTrace()
             }
         })
+        binding.guess.setOnClickListener{
+            appService.GetGuessLike().enqueue(object : retrofit2.Callback<HomeList> {
+                override fun onResponse(call: Call<HomeList>, response: Response<HomeList>) {
+                    Log.d("MEWWW", response.toString())
+                    Toast.makeText(context, "获取猜你喜欢成功", Toast.LENGTH_SHORT).show()
+                    homeItemList = response.body()?.data as ArrayList<HomeData>
+                    val layoutManager = GridLayoutManager(requireContext(), 2)
+                    binding.homeRecyclerview.layoutManager = layoutManager
+
+                    val adapter = HomeItemAdapter(homeItemList, this@HomeFragment)
+                    binding.homeRecyclerview.adapter = adapter
+                }
+
+                override fun onFailure(call: Call<HomeList>, t: Throwable) {
+                    t.printStackTrace()
+                }
+            })
+        }
+        binding.live.setOnClickListener{
+            Toast.makeText(context, "MEWWW!!!!直播功能还未开放，敬请期待", Toast.LENGTH_SHORT).show()
+        }
+        binding.news.setOnClickListener{
+            Toast.makeText(context, "MEWWW!!!!今日功能还未开放，敬请期待", Toast.LENGTH_SHORT).show()
+        }
+        binding.dazzing.setOnClickListener{
+            Toast.makeText(context, "MEWWW!!!!晒好物功能还未开放，敬请期待", Toast.LENGTH_SHORT).show()
+        }
 
 
 
-        val layoutManager = GridLayoutManager(this.context, 2)
-        binding.homeRecyclerview.layoutManager = layoutManager
-        Log.d("我要输出了？", homeItemList.toString())
-        val adapter = HomeItemAdapter(homeItemList!!, this@HomeFragment)
-        binding.homeRecyclerview.adapter = adapter
+
 
         return root
     }
