@@ -10,6 +10,7 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import com.bumptech.glide.Glide
 import com.example.android_round5.AppService
+import com.example.android_round5.SettingsActivity
 import com.example.android_round5.TokenInterceptor
 import com.example.android_round5.databinding.FragmentMeBinding
 import okhttp3.OkHttpClient
@@ -66,7 +67,10 @@ class MeFragment : Fragment() {
                 }
             }
         })
-
+        binding.meSetting.setOnClickListener{
+            val intent = android.content.Intent(activity, SettingsActivity::class.java)
+            startActivity(intent)
+        }
         val root: View = binding.root
         return root
     }
