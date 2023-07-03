@@ -12,8 +12,6 @@ import android.view.Gravity
 import android.view.Window
 import android.widget.Button
 import androidx.appcompat.app.AppCompatActivity
-import kotlinx.android.synthetic.main.activity_login.*
-import kotlinx.android.synthetic.main.activity_login.getCode
 import kotlinx.android.synthetic.main.activity_register.*
 
 class RegisterActivity : AppCompatActivity() {
@@ -37,7 +35,7 @@ class RegisterActivity : AppCompatActivity() {
         /**
          * 这部分用来监听验证码的倒计时，并设置时间
          */
-        mTimeButton = getCode
+        mTimeButton = register_getCode
         time = TimeCount(60000, 1000)
         mTimeButton!!.setOnClickListener {
             time!!.start()

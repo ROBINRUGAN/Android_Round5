@@ -26,7 +26,7 @@
         app:layout_constraintVertical_bias="0.699" />
 
     <EditText
-        android:id="@+id/phone"
+        android:id="@+id/login_phone"
         android:layout_width="316dp"
         android:layout_height="55dp"
         android:background="@mipmap/input"
@@ -53,7 +53,7 @@
     </EditText>
 
     <EditText
-        android:id="@+id/usernmae"
+        android:id="@+id/login_username"
         android:layout_width="316dp"
         android:layout_height="55dp"
         android:background="@mipmap/input"
@@ -126,7 +126,7 @@
         app:layout_constraintVertical_bias="0.800" />
 
     <EditText
-        android:id="@+id/code"
+        android:id="@+id/login_code"
         android:layout_width="316dp"
         android:layout_height="55dp"
         android:background="@mipmap/input"
@@ -150,7 +150,7 @@
     </EditText>
 
     <EditText
-        android:id="@+id/password"
+        android:id="@+id/login_password"
         android:layout_width="316dp"
         android:layout_height="55dp"
         android:background="@mipmap/input"
@@ -174,7 +174,7 @@
     </EditText>
 
     <Button
-        android:id="@+id/getCode"
+        android:id="@+id/login_getCode"
         android:layout_width="139dp"
         android:layout_height="48dp"
         android:background="#00FFFFFF"

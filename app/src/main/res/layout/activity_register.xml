@@ -38,7 +38,7 @@
     </ImageView>
 
     <EditText
-        android:id="@+id/code"
+        android:id="@+id/register_code"
         android:layout_width="316dp"
         android:layout_height="55dp"
         android:background="@mipmap/input"
@@ -61,7 +61,7 @@
     </EditText>
 
     <EditText
-        android:id="@+id/phone"
+        android:id="@+id/register_phone"
         android:layout_width="316dp"
         android:layout_height="55dp"
         android:background="@mipmap/input"
@@ -83,7 +83,7 @@
     </EditText>
 
     <EditText
-        android:id="@+id/rePassword"
+        android:id="@+id/register_rePassword"
         android:layout_width="316dp"
         android:layout_height="55dp"
         android:background="@mipmap/input"
@@ -106,7 +106,7 @@
     </EditText>
 
     <EditText
-        android:id="@+id/username"
+        android:id="@+id/register_username"
         android:layout_width="316dp"
         android:layout_height="55dp"
         android:background="@mipmap/input"
@@ -129,7 +129,7 @@
     </EditText>
 
     <EditText
-        android:id="@+id/password"
+        android:id="@+id/register_password"
         android:layout_width="316dp"
         android:layout_height="55dp"
         android:background="@mipmap/input"
@@ -170,7 +170,7 @@
         app:layout_constraintVertical_bias="0.686" />
 
     <Button
-        android:id="@+id/getCode"
+        android:id="@+id/register_getCode"
         android:layout_width="139dp"
         android:layout_height="48dp"
         android:background="#00FFFFFF"

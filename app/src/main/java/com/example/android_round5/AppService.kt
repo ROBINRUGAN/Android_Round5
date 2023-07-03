@@ -8,10 +8,10 @@ import retrofit2.http.*
 
 interface AppService {
 
-//    @POST("login")
-//    @Headers("Content-Type: application/json")
-//    fun getlogin(@Body body: RequestBody): retrofit2.Call<Login>
-//
+    @POST("/users/login/username")
+    @Headers("Content-Type: application/json")
+    fun LoginByUsername(@Body body: RequestBody): retrofit2.Call<Login>
+
 //    @POST("register")
 //    @Headers("Content-Type: application/json")
 //    fun getregister(@Body body: RequestBody): retrofit2.Call<Register>
