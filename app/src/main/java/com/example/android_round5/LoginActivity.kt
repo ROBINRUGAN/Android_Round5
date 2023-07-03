@@ -29,6 +29,7 @@ class LoginActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_login)
 
+        //******************************************************************************************
         val sharedPreferences = this@LoginActivity.getSharedPreferences("my_app_prefs", Context.MODE_PRIVATE)
         val token = sharedPreferences.getString("token", null)
         val httpClient = OkHttpClient.Builder()
@@ -36,14 +37,15 @@ class LoginActivity : AppCompatActivity() {
         {
             httpClient.addInterceptor(TokenInterceptor(token))
         }
-
-
         val retrofit = Retrofit.Builder()
             .client(httpClient.build())
             .baseUrl("http://api.mewtopia.cn:5000/")
             .addConverterFactory(GsonConverterFactory.create())
             .build()
         val appService = retrofit.create(AppService::class.java)
+        //******************************************************************************************
+
+
         /**
          * 这部分用来监听验证码的倒计时，并设置时间
          */

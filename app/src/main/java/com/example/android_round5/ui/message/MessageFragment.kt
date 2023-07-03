@@ -5,16 +5,12 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.TextView
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
-import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.android_round5.R
-import com.example.android_round5.adapter.HomeItemAdapter
 import com.example.android_round5.adapter.MessageItemAdapter
 import com.example.android_round5.databinding.FragmentMessageBinding
-import com.example.android_round5.entity.HomeItem
 import com.example.android_round5.entity.MessageItem
 
 class MessageFragment : Fragment() {

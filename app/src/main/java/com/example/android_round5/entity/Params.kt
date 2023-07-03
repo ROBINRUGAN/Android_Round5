@@ -38,7 +38,7 @@ data class UserInfoUser(
 )
 data class HomeList(
     val code: Int,
-    val `data`: List<HomeData>,
+    val `data`: ArrayList<HomeData>,
     val message: String
 )
 
