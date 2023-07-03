@@ -8,7 +8,7 @@
     tools:context=".ui.home.HomeFragment">
 
     <EditText
-        android:id="@+id/editText"
+        android:id="@+id/homeSearch"
         android:layout_width="343dp"
         android:layout_height="33dp"
         android:paddingLeft="35dp"

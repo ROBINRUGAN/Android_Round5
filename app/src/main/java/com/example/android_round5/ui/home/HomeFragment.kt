@@ -6,6 +6,7 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.view.inputmethod.EditorInfo
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
@@ -79,7 +80,7 @@ class HomeFragment : Fragment() {
                 t.printStackTrace()
             }
         })
-        binding.guess.setOnClickListener{
+        binding.guess.setOnClickListener {
             appService.GetGuessLike().enqueue(object : retrofit2.Callback<HomeList> {
                 override fun onResponse(call: Call<HomeList>, response: Response<HomeList>) {
                     Log.d("MEWWW", response.toString())
@@ -97,16 +98,42 @@ class HomeFragment : Fragment() {
                 }
             })
         }
-        binding.live.setOnClickListener{
+        binding.live.setOnClickListener {
             Toast.makeText(context, "MEWWW!!!!直播功能还未开放，敬请期待", Toast.LENGTH_SHORT).show()
         }
-        binding.news.setOnClickListener{
+        binding.news.setOnClickListener {
             Toast.makeText(context, "MEWWW!!!!今日功能还未开放，敬请期待", Toast.LENGTH_SHORT).show()
         }
-        binding.dazzing.setOnClickListener{
+        binding.dazzing.setOnClickListener {
             Toast.makeText(context, "MEWWW!!!!晒好物功能还未开放，敬请期待", Toast.LENGTH_SHORT).show()
         }
+        binding.homeSearch.setOnEditorActionListener { _, actionId, _ ->
+            if (actionId == EditorInfo.IME_ACTION_SEARCH) {
+                appService.GetSearch(binding.homeSearch.text.toString(),1,114514)
+                    .enqueue(object : retrofit2.Callback<HomeList> {
+                        override fun onResponse(
+                            call: Call<HomeList>,
+                            response: Response<HomeList>
+                        ) {
+                            Log.d("MEWWW", response.body().toString())
+                            Toast.makeText(context, "搜索成功", Toast.LENGTH_SHORT).show()
+                            homeItemList = response.body()?.data as ArrayList<HomeData>
+                            val layoutManager = GridLayoutManager(requireContext(), 2)
+                            binding.homeRecyclerview.layoutManager = layoutManager
 
+                            val adapter = HomeItemAdapter(homeItemList, this@HomeFragment)
+                            binding.homeRecyclerview.adapter = adapter
+                        }
+
+                        override fun onFailure(call: Call<HomeList>, t: Throwable) {
+                            t.printStackTrace()
+                        }
+                    }
+                    )
+                return@setOnEditorActionListener true
+            }
+            return@setOnEditorActionListener false
+        }
 
 
 

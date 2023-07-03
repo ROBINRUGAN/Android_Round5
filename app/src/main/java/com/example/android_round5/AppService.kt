@@ -54,6 +54,16 @@ interface AppService {
     @GET("/users")
     fun GetUserInfo(): retrofit2.Call<UserInfo>
 
+    /**
+     * 获取首页搜索
+     */
+    @GET("/search")
+    fun GetSearch(
+        @Query("keywords") keyword: String,
+        @Query("page") page: Int,
+        @Query("size") size: Int
+    ): retrofit2.Call<HomeList>
+
 
 
 //    @POST("register")
