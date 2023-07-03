@@ -7,7 +7,7 @@
     <item
         android:id="@+id/navigation_deal"
         android:icon="@mipmap/nav_deal"
-        android:title="交易" />
+        android:title="关于" />
     <item
         android:id="@+id/navigation_upload"
         android:icon="@mipmap/nav_upload"

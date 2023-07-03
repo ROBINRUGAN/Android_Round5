@@ -28,10 +28,7 @@ class DealFragment : Fragment() {
         _binding = FragmentDealBinding.inflate(inflater, container, false)
         val root: View = binding.root
 
-        val textView: TextView = binding.textDeal
-        dealViewModel.text.observe(viewLifecycleOwner) {
-            textView.text = it
-        }
+
         return root
     }
 
