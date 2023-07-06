@@ -7,6 +7,7 @@ import android.util.Log
 import android.widget.EditText
 import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
+import androidx.viewpager2.widget.ViewPager2
 import com.bumptech.glide.Glide
 import com.example.android_round5.adapter.ImageAdapter
 import com.example.android_round5.entity.BidOrderData
@@ -17,8 +18,10 @@ import okhttp3.OkHttpClient
 import okhttp3.ResponseBody
 import retrofit2.*
 import retrofit2.converter.gson.GsonConverterFactory
+import java.util.*
 
 class DetailActivity : AppCompatActivity() {
+    private lateinit var timer: Timer
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_detail)
@@ -51,15 +54,18 @@ class DetailActivity : AppCompatActivity() {
         detailPrice.text=intent.getStringExtra("homeItem.price")
         detailNickname.text=intent.getStringExtra("homeItem.seller_nickname")
         Glide.with(this).load(intent.getStringExtra("homeItem.seller_profile_photo")).into(detailAvatar)
-
-
         detailLikes.text=intent.getStringExtra("homeItem.view")
+
+
         val urlList =
-            intent.getStringExtra("homeItem.picture_url")?.split(",")  // 假设 responseString 是从后端获取到的字符串
+            intent.getStringExtra("homeItem.picture_url")?.split(",")  // 替换为实际的图片数据
 
         val images = urlList // 替换为实际的图片数据
         val adapter = images?.let { ImageAdapter(it,this) }
         detailImage.adapter = adapter
+        // 设置自动轮播定时器
+        timer = Timer()
+        timer.scheduleAtFixedRate(adapter?.let { ScrollTask(it.itemCount) }, 2000, 3000)
         detail_pay.setOnClickListener{
             // 创建一个 AlertDialog.Builder 对象
             val builder = AlertDialog.Builder(this)
@@ -151,6 +157,21 @@ class DetailActivity : AppCompatActivity() {
                     /**************************************************************/
                 }
             })
+        }
+    }
+    override fun onDestroy() {
+        super.onDestroy()
+        // 销毁定时器
+        timer.cancel()
+    }
+
+    private inner class ScrollTask(private val pageCount: Int) : TimerTask() {
+        override fun run() {
+            runOnUiThread {
+                val currentItem = detailImage.currentItem
+                val nextItem = (currentItem + 1) % pageCount
+                detailImage.setCurrentItem(nextItem, true)
+            }
         }
     }
 }
