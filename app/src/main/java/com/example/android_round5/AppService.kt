@@ -71,6 +71,15 @@ interface AppService {
     @Headers("Content-Type: application/json")
     fun AddFavorite(@Body body: RequestBody): retrofit2.Call<DetailAddData>
 
+    /**
+     * 立即出价
+     */
+    @POST("/order/bid")
+    @FormUrlEncoded
+    fun BidOrder(
+        @Field("good_id") good_id: String,
+        @Field("money") money: Double
+    ): retrofit2.Call<BidOrderData>
 
 //    @POST("register")
 //    @Headers("Content-Type: application/json")

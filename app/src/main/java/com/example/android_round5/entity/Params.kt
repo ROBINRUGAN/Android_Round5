@@ -57,3 +57,8 @@ data class DetailAddData(
     val code: Int,
     val message: String
 )
+
+data class BidOrderData(
+    val code: Int,
+    val msg: String
+)
