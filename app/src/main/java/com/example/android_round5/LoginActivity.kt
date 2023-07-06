@@ -12,14 +12,11 @@ import androidx.appcompat.app.AppCompatActivity
 import com.example.android_round5.entity.Login
 import jsonOf
 import kotlinx.android.synthetic.main.activity_login.*
-import kotlinx.android.synthetic.main.activity_login.login_code
-import kotlinx.android.synthetic.main.activity_login.login_getCode
-import kotlinx.android.synthetic.main.activity_login.login_password
-import kotlinx.android.synthetic.main.activity_login.login_phone
 import okhttp3.OkHttpClient
 import retrofit2.*
 import retrofit2.converter.gson.GsonConverterFactory
 import android.content.Context
+import com.example.android_round5.entity.GetCode
 
 
 class LoginActivity : AppCompatActivity() {
@@ -46,14 +43,33 @@ class LoginActivity : AppCompatActivity() {
         //******************************************************************************************
 
 
-        /**
-         * 这部分用来监听验证码的倒计时，并设置时间
-         */
-        mTimeButton = login_getCode
-        time = TimeCount(60000, 1000)
-        mTimeButton!!.setOnClickListener {
-            time!!.start()
 
+
+        login_getCode.setOnClickListener {
+            /**
+             * 这部分用来监听验证码的倒计时，并设置时间
+             */
+            time = TimeCount(60000, 1000)
+            val loginGetCodeData = jsonOf(
+                "type" to "login",
+                "phone_number" to login_phone.text.toString()
+            )
+            time!!.start()
+            Log.d("MEWWW",login_phone.text.toString())
+            Log.d("MEWWW",loginGetCodeData.toString())
+            appService.GetCode(loginGetCodeData).enqueue(object : Callback<GetCode>
+            {
+                override fun onResponse(call: Call<GetCode>, response: Response<GetCode>) {
+                    val getCodeData = response.body()
+                    Log.d("MEWWW", getCodeData.toString())
+                    if (getCodeData != null) {
+                        Toast.makeText(this@LoginActivity, getCodeData.message, Toast.LENGTH_SHORT).show()
+                    }
+                }
+                override fun onFailure(call: Call<GetCode>, t: Throwable) {
+                   t.printStackTrace()
+                }
+            })
 
         }
 
@@ -185,6 +201,8 @@ class LoginActivity : AppCompatActivity() {
                 changeLoginWay.text = "用户名密码登录"
             }
         }
+
+
     }
 
     /**
@@ -201,13 +219,13 @@ class LoginActivity : AppCompatActivity() {
         (millisInFuture: Long, countDownInterval: Long) :
         CountDownTimer(millisInFuture, countDownInterval) {
         override fun onTick(millisUntilFinished: Long) {
-            mTimeButton!!.isEnabled = false
-            mTimeButton!!.text = (millisUntilFinished / 1000).toString() + "秒后可重发"
+            login_getCode.isEnabled = false
+            login_getCode.text = (millisUntilFinished / 1000).toString() + "秒后可重发"
         }
 
         override fun onFinish() { // 计时结束
-            mTimeButton!!.isEnabled = true
-            mTimeButton!!.text = "重新获取"
+            login_getCode.isEnabled = true
+            login_getCode.text = "重新获取"
         }
     }
 

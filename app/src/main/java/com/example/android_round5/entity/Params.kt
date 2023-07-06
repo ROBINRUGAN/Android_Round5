@@ -12,13 +12,9 @@ data class Register(
 )
 data class GetCode(
     val code: Int,
-    val `data`: GetCodeData,
     val message: String
 )
 
-data class GetCodeData(
-    val code: String
-)
 data class UserInfo(
     val code: Int,
     val message: String,
