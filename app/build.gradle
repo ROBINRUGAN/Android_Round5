@@ -57,6 +57,8 @@ dependencies {
     implementation 'com.squareup.okhttp3:okhttp:4.9.3'
     implementation 'com.squareup.okio:okio:2.8.0'
     implementation 'androidx.preference:preference:1.1.1'
+    implementation 'androidx.viewpager2:viewpager2:1.0.0'
+    implementation 'com.github.chrisbanes:PhotoView:2.3.0'
     annotationProcessor 'com.github.bumptech.glide:compiler:4.11.0'
     annotationProcessor 'androidx.annotation:annotation:1.0.0'
     testImplementation 'junit:junit:4.13.2'

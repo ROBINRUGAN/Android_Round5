@@ -27,6 +27,7 @@ class LoginActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_login)
 
+        //调取token和retrofit的预处理
         //******************************************************************************************
         val sharedPreferences = this@LoginActivity.getSharedPreferences("my_app_prefs", Context.MODE_PRIVATE)
         val token = sharedPreferences.getString("token", null)
@@ -222,9 +223,6 @@ class LoginActivity : AppCompatActivity() {
 
     /**
      * 验证码按钮显示倒计时类，继承自倒计时类
-     *
-     * @author MEWWW
-     *
      * @param millisInFuture
      * 总倒计时长 毫秒
      * @param countDownInterval

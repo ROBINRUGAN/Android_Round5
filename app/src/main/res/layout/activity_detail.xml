@@ -132,11 +132,10 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.16" />
 
-    <ImageView
+    <androidx.viewpager2.widget.ViewPager2
         android:id="@+id/detailImage"
         android:layout_width="match_parent"
         android:layout_height="204dp"
-        android:src="@mipmap/mew"
         android:layout_marginLeft="20dp"
         android:layout_marginRight="20dp"
         app:layout_constraintBottom_toBottomOf="parent"
