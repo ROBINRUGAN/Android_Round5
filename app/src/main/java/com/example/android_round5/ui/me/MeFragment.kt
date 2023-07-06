@@ -35,8 +35,6 @@ class MeFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        val meViewModel =
-            ViewModelProvider(this).get(MeViewModel::class.java)
 
         _binding = FragmentMeBinding.inflate(inflater, container, false)
         //******************************************************************************************
@@ -98,6 +96,10 @@ class MeFragment : Fragment() {
         }
         binding.meFavoriteBtn.setOnClickListener{
             val intent = android.content.Intent(activity, MyFavoriteActivity::class.java)
+            startActivity(intent)
+        }
+        binding.meBuyBtn.setOnClickListener{
+            val intent = android.content.Intent(activity, MyBuyActivity::class.java)
             startActivity(intent)
         }
         val root: View = binding.root

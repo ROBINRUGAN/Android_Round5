@@ -111,6 +111,13 @@ interface AppService {
     @GET("/users/favorites?page=1&size=114514")
     fun GetFavoritePage(): retrofit2.Call<HomeList>
 
+    /**
+     * 获取我的购买
+     */
+    @GET("/order/Myorder/buy")
+    fun GetMyBuy(): retrofit2.Call<OrderList>
+
+
 //    @POST("register")
 //    @Headers("Content-Type: application/json")
 //    fun getregister(@Body body: RequestBody): retrofit2.Call<Register>

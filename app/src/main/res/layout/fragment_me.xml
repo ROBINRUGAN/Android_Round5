@@ -130,7 +130,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="192dp"
         android:layout_marginBottom="53dp"
-        android:text="1222223.41"
+        android:text="123.41"
         android:textColor="#FF0000"
         android:textSize="35dp"
         app:layout_constraintBottom_toTopOf="@+id/linearLayout"
@@ -201,7 +201,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="我的订单" />
+                    android:text="我的购买" />
             </LinearLayout>
 
 
