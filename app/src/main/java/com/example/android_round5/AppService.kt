@@ -64,8 +64,12 @@ interface AppService {
         @Query("size") size: Int
     ): retrofit2.Call<HomeList>
 
-
-
+    /**
+     * 添加心愿单
+     */
+    @POST("/users/favorites")
+    @Headers("Content-Type: application/json")
+    fun AddFavorite(@Body body: RequestBody): retrofit2.Call<DetailAddData>
 
 
 //    @POST("register")

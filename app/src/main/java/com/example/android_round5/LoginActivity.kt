@@ -21,7 +21,6 @@ import okhttp3.ResponseBody
 
 
 class LoginActivity : AppCompatActivity() {
-    private var mTimeButton: Button? = null
     private var time: TimeCount? = null
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

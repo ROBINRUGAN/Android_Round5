@@ -146,6 +146,7 @@
         app:layout_constraintVertical_bias="0.094" />
 
     <Button
+        android:id="@+id/detail_add"
         android:layout_width="113dp"
         android:layout_height="40dp"
         android:layout_marginTop="1dp"
@@ -154,14 +155,14 @@
         android:textColor="@color/white"
         android:textSize="17dp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/button"
+        app:layout_constraintEnd_toStartOf="@+id/detail_pay"
         app:layout_constraintHorizontal_bias="0.385"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/detailImage"
         app:layout_constraintVertical_bias="0.8" />
 
     <Button
-        android:id="@+id/button"
+        android:id="@+id/detail_pay"
         android:layout_width="110dp"
         android:layout_height="40dp"
         android:layout_marginTop="1dp"

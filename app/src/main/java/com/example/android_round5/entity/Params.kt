@@ -52,3 +52,8 @@ data class HomeData(
     val title: String,
     val view: Int
 )
+
+data class DetailAddData(
+    val code: Int,
+    val message: String
+)
