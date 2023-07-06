@@ -81,6 +81,30 @@ interface AppService {
         @Field("money") money: Double
     ): retrofit2.Call<BidOrderData>
 
+    /**
+     * 上传图片，获取图片url
+     */
+    @Multipart
+    @POST("/picture")
+    fun GetUrl(
+        @Part picture: MultipartBody.Part
+    ): retrofit2.Call<UrlData>
+
+    /**
+     * 上传商品
+     */
+    @POST("/goods")
+    @FormUrlEncoded
+    fun UploadGoods(
+        @Field("game") game: String,
+        @Field("title") title: String,
+        @Field("content") content: String,
+        @Field("picture") picture: String,
+        @Field("account") account: String,
+        @Field("password") password: String,
+        @Field("price") price: String,
+    ): retrofit2.Call<DetailAddData>
+
 //    @POST("register")
 //    @Headers("Content-Type: application/json")
 //    fun getregister(@Body body: RequestBody): retrofit2.Call<Register>

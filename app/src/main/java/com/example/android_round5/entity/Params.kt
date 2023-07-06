@@ -62,3 +62,8 @@ data class BidOrderData(
     val code: Int,
     val msg: String
 )
+data class UrlData(
+    val code: Int,
+    val `data`: String,
+    val message: String
+)

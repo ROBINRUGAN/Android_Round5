@@ -6,6 +6,7 @@ import android.widget.ListView
 import androidx.appcompat.app.AppCompatActivity
 import com.bumptech.glide.Glide
 import com.example.android_round5.adapter.SettingsAdapter
+import kotlinx.android.synthetic.main.activity_settings.*
 import kotlinx.android.synthetic.main.fragment_me.*
 import okhttp3.OkHttpClient
 import retrofit2.Retrofit
@@ -36,6 +37,14 @@ class SettingsActivity : AppCompatActivity() {
             .build()
         val appService = retrofit.create(AppService::class.java)
         //******************************************************************************************
+        logout_button.setOnClickListener{
+            val editor = sharedPreferences.edit()
+            editor.remove("token")
+            editor.apply()
+            finish()
+            val intent = android.content.Intent(this, LoginActivity::class.java)
+            startActivity(intent)
+        }
         appService.GetUserInfo().enqueue(object : retrofit2.Callback<com.example.android_round5.entity.UserInfo> {
             override fun onFailure(call: retrofit2.Call<com.example.android_round5.entity.UserInfo>, t: Throwable) {
                 println("请求失败")

@@ -48,14 +48,15 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
             android:textColor="#B60F0F"
+            android:breakStrategy="simple"
             android:text="我们的团队名为闲猫，由MEWWW、Kikikisum、呼呼狐、LRD.Abner、Arthur.Wang组成。"
-            android:textSize="16sp" />
+            android:textSize="18sp" />
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
-            android:paddingTop="10sp"
+            android:paddingTop="20sp"
             android:paddingBottom="10sp"
             android:text="安卓端分工如下："
             android:textSize="25sp" />
@@ -87,7 +88,7 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
+            android:layout_marginTop="50dp"
             android:text="联系方式："
             android:textSize="25sp" />
         <TextView
