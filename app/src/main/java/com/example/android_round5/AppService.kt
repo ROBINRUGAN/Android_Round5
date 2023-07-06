@@ -126,7 +126,7 @@ interface AppService {
     /**
      * 充值或提现
      */
-    @POST("/users/money")
+    @PUT("/users/money")
     @Headers("Content-Type: application/json")
     fun Money(@Body body: RequestBody): retrofit2.Call<DetailAddData>
 

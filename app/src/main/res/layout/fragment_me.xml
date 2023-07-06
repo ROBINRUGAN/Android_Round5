@@ -8,7 +8,7 @@
     tools:context=".ui.me.MeFragment">
 
     <Button
-        android:id="@+id/detail_pay2"
+        android:id="@+id/withdraw"
         android:layout_width="70dp"
         android:layout_height="35dp"
         android:layout_marginEnd="16dp"
@@ -16,13 +16,13 @@
         android:text="提现"
         android:textColor="@color/white"
         android:textSize="17dp"
-        app:layout_constraintBottom_toTopOf="@+id/detail_add2"
+        app:layout_constraintBottom_toTopOf="@+id/topup"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.912" />
 
     <Button
-        android:id="@+id/detail_add2"
+        android:id="@+id/topup"
         android:layout_width="70dp"
         android:layout_height="35dp"
         android:layout_marginEnd="16dp"
