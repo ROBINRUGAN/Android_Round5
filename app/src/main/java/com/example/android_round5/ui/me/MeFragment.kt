@@ -10,10 +10,7 @@ import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import com.bumptech.glide.Glide
-import com.example.android_round5.AppService
-import com.example.android_round5.LoginActivity
-import com.example.android_round5.SettingsActivity
-import com.example.android_round5.TokenInterceptor
+import com.example.android_round5.*
 import com.example.android_round5.databinding.FragmentMeBinding
 import com.example.android_round5.entity.GetCode
 import com.example.android_round5.entity.UserInfo
@@ -83,6 +80,7 @@ class MeFragment : Fragment() {
                     Toast.makeText(context, userInfo.message, Toast.LENGTH_SHORT).show()
                     binding.meUsername.text = userInfo.user.username
                     binding.meNickname.text = userInfo.user.nickname
+                    binding.meMoney.text = userInfo.user.money
                     Glide.with(this@MeFragment)
                         .load(userInfo.user.profile_photo)
                         .into(binding.meAvatar)
@@ -96,6 +94,10 @@ class MeFragment : Fragment() {
         })
         binding.meSetting.setOnClickListener{
             val intent = android.content.Intent(activity, SettingsActivity::class.java)
+            startActivity(intent)
+        }
+        binding.meFavoriteBtn.setOnClickListener{
+            val intent = android.content.Intent(activity, MyFavoriteActivity::class.java)
             startActivity(intent)
         }
         val root: View = binding.root

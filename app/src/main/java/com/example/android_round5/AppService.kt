@@ -105,6 +105,12 @@ interface AppService {
         @Field("price") price: String,
     ): retrofit2.Call<DetailAddData>
 
+    /**
+     * 获取首页商品列表
+     */
+    @GET("/users/favorites?page=1&size=114514")
+    fun GetFavoritePage(): retrofit2.Call<HomeList>
+
 //    @POST("register")
 //    @Headers("Content-Type: application/json")
 //    fun getregister(@Body body: RequestBody): retrofit2.Call<Register>
