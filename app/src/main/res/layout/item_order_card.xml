@@ -156,6 +156,33 @@
                 android:background="@mipmap/detail_btn"
                 android:text="付款"
                 android:textSize="20dp" />
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                >
+                <Button
+                    android:id="@+id/passBtn"
+                    android:layout_width="70dp"
+                    android:layout_height="35dp"
+                    android:visibility="gone"
+                    android:layout_marginEnd="30dp"
+                    android:layout_marginRight="20dp"
+                    android:background="@mipmap/detail_btn"
+                    android:text="通过"
+                    android:textSize="20dp" />
+                <Button
+                    android:id="@+id/failBtn"
+                    android:layout_width="70dp"
+                    android:layout_height="35dp"
+                    android:visibility="gone"
+                    android:layout_marginStart="30dp"
+                    android:layout_marginRight="20dp"
+                    android:background="@mipmap/detail_btn"
+                    android:text="拒绝"
+                    android:textSize="20dp" />
+            </LinearLayout>
+
 
 
         </LinearLayout>

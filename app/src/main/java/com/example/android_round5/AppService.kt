@@ -117,6 +117,18 @@ interface AppService {
     @GET("/order/Myorder/buy")
     fun GetMyBuy(): retrofit2.Call<OrderList>
 
+    /**
+     * 获取我的出售
+     */
+    @GET("/order/my/sell")
+    fun GetMySell(): retrofit2.Call<OrderList>
+
+    /**
+     * 充值或提现
+     */
+    @POST("/users/money")
+    @Headers("Content-Type: application/json")
+    fun Money(@Body body: RequestBody): retrofit2.Call<DetailAddData>
 
 //    @POST("register")
 //    @Headers("Content-Type: application/json")

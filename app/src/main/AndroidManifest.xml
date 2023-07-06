@@ -23,6 +23,13 @@
         android:windowSoftInputMode="adjustNothing"
         tools:targetApi="31">
         <activity
+            android:name=".MySellActivity"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
             android:name=".MyBuyActivity"
             android:exported="false">
             <meta-data

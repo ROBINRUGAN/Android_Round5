@@ -102,6 +102,10 @@ class MeFragment : Fragment() {
             val intent = android.content.Intent(activity, MyBuyActivity::class.java)
             startActivity(intent)
         }
+        binding.meSellerBtn.setOnClickListener{
+            val intent = android.content.Intent(activity, MySellActivity::class.java)
+            startActivity(intent)
+        }
         val root: View = binding.root
         return root
     }

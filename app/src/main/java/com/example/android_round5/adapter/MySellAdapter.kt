@@ -10,8 +10,8 @@ import com.example.android_round5.R
 import com.example.android_round5.entity.OrderData
 
 
-class MyBuyAdapter(private val orders: List<OrderData>) :
-    RecyclerView.Adapter<MyBuyAdapter.OrderViewHolder>() {
+class MySellAdapter(private val orders: List<OrderData>) :
+    RecyclerView.Adapter<MySellAdapter.OrderViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): OrderViewHolder {
         val view = LayoutInflater.from(parent.context)
@@ -22,22 +22,18 @@ class MyBuyAdapter(private val orders: List<OrderData>) :
     override fun onBindViewHolder(holder: OrderViewHolder, position: Int) {
         val order = orders[position]
         holder.bind(order)
-        if(order.status==2)
-        {
-            holder.itemView.findViewById<TextView>(R.id.mybuy_status).text="你还未付款"
-            holder.itemView.findViewById<Button>(R.id.payBillBtn).visibility= View.VISIBLE
-        }
-        else if(order.status==0)
-        {
-            holder.itemView.findViewById<TextView>(R.id.mybuy_status).text="商家未确认"
-        }
-        else if(order.status==1)
-        {
-            holder.itemView.findViewById<TextView>(R.id.mybuy_status).text="商家已通过"
-        }
-        else if(order.status==-1)
-        {
-            holder.itemView.findViewById<TextView>(R.id.mybuy_status).text="商家已拒绝"
+
+        if (order.status == 2) {
+            holder.itemView.findViewById<TextView>(R.id.mybuy_status).text = "买家未付款"
+        } else if (order.status == 0) {
+            holder.itemView.findViewById<Button>(R.id.payBillBtn).visibility = View.GONE
+            holder.itemView.findViewById<TextView>(R.id.mybuy_status).text = "你还未确认"
+            holder.itemView.findViewById<Button>(R.id.passBtn).visibility = View.VISIBLE
+            holder.itemView.findViewById<Button>(R.id.failBtn).visibility = View.VISIBLE
+        } else if (order.status == 1) {
+            holder.itemView.findViewById<TextView>(R.id.mybuy_status).text = "你已经通过"
+        } else if (order.status == -1) {
+            holder.itemView.findViewById<TextView>(R.id.mybuy_status).text = "你已经拒绝"
         }
 
     }
