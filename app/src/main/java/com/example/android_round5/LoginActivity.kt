@@ -17,6 +17,7 @@ import retrofit2.*
 import retrofit2.converter.gson.GsonConverterFactory
 import android.content.Context
 import com.example.android_round5.entity.GetCode
+import okhttp3.ResponseBody
 
 
 class LoginActivity : AppCompatActivity() {
@@ -54,7 +55,7 @@ class LoginActivity : AppCompatActivity() {
                 "type" to "login",
                 "phone_number" to login_phone.text.toString()
             )
-            time!!.start()
+
             Log.d("MEWWW",login_phone.text.toString())
             Log.d("MEWWW",loginGetCodeData.toString())
             appService.GetCode(loginGetCodeData).enqueue(object : Callback<GetCode>
@@ -62,9 +63,24 @@ class LoginActivity : AppCompatActivity() {
                 override fun onResponse(call: Call<GetCode>, response: Response<GetCode>) {
                     val getCodeData = response.body()
                     Log.d("MEWWW", getCodeData.toString())
+                    /*******************      封装好的错误处理      ******************/
+                    /**************************************************************/
+                    if(getCodeData==null)
+                    {
+                        val errorConverter: Converter<ResponseBody, GetCode> =
+                            retrofit.responseBodyConverter(GetCode::class.java, arrayOfNulls(0))
+
+                        val errorResponse: GetCode? = errorConverter.convert(response.errorBody()!!)
+                        if (errorResponse != null) {
+                            Toast.makeText(this@LoginActivity, errorResponse.message, Toast.LENGTH_SHORT).show()
+
+                        }
+                    }
                     if (getCodeData != null) {
                         Toast.makeText(this@LoginActivity, getCodeData.message, Toast.LENGTH_SHORT).show()
+                        time!!.start()
                     }
+                    /**************************************************************/
                 }
                 override fun onFailure(call: Call<GetCode>, t: Throwable) {
                    t.printStackTrace()
@@ -90,7 +106,6 @@ class LoginActivity : AppCompatActivity() {
          * 跳转进入主程序，并落在主页
          */
         login.setOnClickListener{
-
 
             val loginByUsernameData = jsonOf(
                 "username" to login_username.text.toString(),

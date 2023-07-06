@@ -34,6 +34,7 @@
         android:hint="请输入手机号"
         android:singleLine="true"
         android:maxLength="11"
+        android:inputType="phone"
         android:paddingStart="20dp"
         android:textColor="#222222"
         android:textColorHint="#92A0C0"

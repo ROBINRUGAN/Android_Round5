@@ -1,6 +1,7 @@
 package com.example.android_round5
 
 import android.app.ActivityOptions
+import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import android.os.CountDownTimer
@@ -11,8 +12,20 @@ import android.util.Log
 import android.view.Gravity
 import android.view.Window
 import android.widget.Button
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import com.example.android_round5.entity.GetCode
+import com.example.android_round5.entity.Register
+import jsonOf
 import kotlinx.android.synthetic.main.activity_register.*
+import okhttp3.OkHttpClient
+import okhttp3.ResponseBody
+import retrofit2.Call
+import retrofit2.Callback
+import retrofit2.Converter
+import retrofit2.Response
+import retrofit2.Retrofit
+import retrofit2.converter.gson.GsonConverterFactory
 
 class RegisterActivity : AppCompatActivity() {
 
@@ -31,22 +44,119 @@ class RegisterActivity : AppCompatActivity() {
 //        window.exitTransition = Fade()
 
         setContentView(R.layout.activity_register)
+        //******************************************************************************************
+        val sharedPreferences =
+            this@RegisterActivity.getSharedPreferences("my_app_prefs", Context.MODE_PRIVATE)
+        val token = sharedPreferences.getString("token", null)
+        val httpClient = OkHttpClient.Builder()
+        if (token != null) {
+            httpClient.addInterceptor(TokenInterceptor(token))
+        }
+        val retrofit = Retrofit.Builder()
+            .client(httpClient.build())
+            .baseUrl("http://api.mewtopia.cn:5000/")
+            .addConverterFactory(GsonConverterFactory.create())
+            .build()
+        val appService = retrofit.create(AppService::class.java)
+        //******************************************************************************************
 
         /**
          * 这部分用来监听验证码的倒计时，并设置时间
          */
-        mTimeButton = register_getCode
-        time = TimeCount(60000, 1000)
-        mTimeButton!!.setOnClickListener {
-            time!!.start()
+
+        register_getCode.setOnClickListener {
+            time = TimeCount(60000, 1000)
+
+            val registerGetCodeData = jsonOf(
+                "type" to "register",
+                "phone_number" to register_phone.text.toString()
+            )
+
+            Log.d("MEWWW", register_phone.text.toString())
+            Log.d("MEWWW", registerGetCodeData.toString())
+            appService.GetCode(registerGetCodeData).enqueue(object : Callback<GetCode> {
+
+                override fun onFailure(call: Call<GetCode>, t: Throwable) {
+                    t.printStackTrace()
+                }
+
+                override fun onResponse(call: Call<GetCode>, response: Response<GetCode>) {
+                    var registerCodeData = response.body()
+                    if (registerCodeData == null) {
+                        val errorConverter: Converter<ResponseBody, GetCode> =
+                            retrofit.responseBodyConverter(GetCode::class.java, arrayOfNulls(0))
+
+                        val errorResponse: GetCode? = errorConverter.convert(response.errorBody()!!)
+                        if (errorResponse != null) {
+                            Toast.makeText(
+                                this@RegisterActivity,
+                                errorResponse.message,
+                                Toast.LENGTH_SHORT
+                            ).show()
+
+                        }
+                    }
+                    if (registerCodeData != null) {
+                        Toast.makeText(
+                            this@RegisterActivity,
+                            registerCodeData.message,
+                            Toast.LENGTH_SHORT
+                        ).show()
+                        time!!.start()
+                    }
+
+                }
+            })
         }
 
         /**
          * 注册成功就直接进入首页，无需重复登录
          */
-        register.setOnClickListener{
-            val intent =Intent(this@RegisterActivity,MainActivity::class.java)
-            this@RegisterActivity.startActivity(intent,ActivityOptions.makeSceneTransitionAnimation(this).toBundle())
+        register.setOnClickListener {
+            val registerData = jsonOf(
+                "username" to register_username.text.toString(),
+                "password" to register_password.text.toString(),
+                "check_password" to register_password.text.toString(),
+                "phone_number" to register_phone.text.toString(),
+                "code" to register_code.text.toString(),
+            )
+            appService.Register(registerData).enqueue(object : Callback<Register> {
+                override fun onFailure(call: Call<Register>, t: Throwable) {
+                    t.printStackTrace()
+                }
+
+                override fun onResponse(call: Call<Register>, response: Response<Register>) {
+                    var registerData = response.body()
+                    if (registerData == null) {
+                        val errorConverter: Converter<ResponseBody, Register> =
+                            retrofit.responseBodyConverter(Register::class.java, arrayOfNulls(0))
+
+                        val errorResponse: Register? = errorConverter.convert(response.errorBody()!!)
+                        if (errorResponse != null) {
+                            Toast.makeText(
+                                this@RegisterActivity,
+                                errorResponse.message,
+                                Toast.LENGTH_SHORT
+                            ).show()
+
+                        }
+                    }
+                    if (registerData != null) {
+                        Toast.makeText(
+                            this@RegisterActivity,
+                            "注册成功，正在为你跳转到登录页^_^",
+                            Toast.LENGTH_SHORT
+                        ).show()
+                        val intent = Intent(this@RegisterActivity, LoginActivity::class.java)
+                        this@RegisterActivity.startActivity(
+                            intent,
+                            ActivityOptions.makeSceneTransitionAnimation(this@RegisterActivity).toBundle()
+                        )
+                    }
+
+                }
+            })
+
         }
     }
 
@@ -64,15 +174,16 @@ class RegisterActivity : AppCompatActivity() {
         (millisInFuture: Long, countDownInterval: Long) :
         CountDownTimer(millisInFuture, countDownInterval) {
         override fun onTick(millisUntilFinished: Long) {
-            mTimeButton!!.isEnabled = false
-            mTimeButton!!.text = (millisUntilFinished / 1000).toString() + "秒后可重发"
+            register_getCode.isEnabled = false
+            register_getCode.text = (millisUntilFinished / 1000).toString() + "秒后可重发"
         }
 
         override fun onFinish() { // 计时结束
-            mTimeButton!!.isEnabled = true
-            mTimeButton!!.text = "重新获取"
+            register_getCode.isEnabled = true
+            register_getCode.text = "重新获取"
         }
     }
+
     override fun onPause() {
         super.onPause()
         object : CountDownTimer(2300, 1000) {
