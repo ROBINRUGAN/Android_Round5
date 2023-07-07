@@ -134,6 +134,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
         <Button
+            android:id="@+id/admingood_pass_btn"
             android:layout_width="70dp"
             android:background="@mipmap/detail_btn"
             android:layout_height="35dp"
@@ -141,6 +142,7 @@
             android:layout_weight="1"
             android:text="通过"/>
         <Button
+            android:id="@+id/admingood_fail_btn"
             android:background="@mipmap/detail_btn"
             android:layout_width="70dp"
             android:layout_marginLeft="10dp"

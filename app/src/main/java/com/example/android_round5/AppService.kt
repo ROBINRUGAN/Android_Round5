@@ -163,7 +163,7 @@ interface AppService {
     fun AdminPocessGood(
         @Field("id") id: String,
         @Field("status") status: Int,
-    ): retrofit2.Call<HomeList>
+    ): retrofit2.Call<BidOrderData>
 
 //    @POST("register")
 //    @Headers("Content-Type: application/json")
