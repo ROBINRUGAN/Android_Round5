@@ -165,6 +165,13 @@ interface AppService {
         @Field("status") status: Int,
     ): retrofit2.Call<BidOrderData>
 
+    /**
+     * 获取聊天列表
+     */
+    @GET("/chat/list")
+    fun GetChatList(): retrofit2.Call<ChatList>
+
+
 //    @POST("register")
 //    @Headers("Content-Type: application/json")
 //    fun getregister(@Body body: RequestBody): retrofit2.Call<Register>

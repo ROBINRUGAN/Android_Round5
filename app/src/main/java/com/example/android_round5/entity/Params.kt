@@ -86,3 +86,18 @@ data class OrderData(
     val seller_status: Int,
     val status: Int
 )
+
+data class ChatList(
+    val code: Int,
+    val `data`: List<ChatListData>,
+    val message: String
+)
+
+data class ChatListData(
+    val last_message: String,
+    val last_message_id: String,
+    val last_message_time: String,
+    val person_id: String,
+    val person_nickname: String,
+    val person_profile_photo: String
+)
