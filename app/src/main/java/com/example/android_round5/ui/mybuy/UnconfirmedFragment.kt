@@ -2,11 +2,9 @@ package com.example.android_round5.ui.mybuy
 
 import android.content.Context
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.android_round5.AppService
@@ -55,7 +53,7 @@ class UnconfirmedFragment : Fragment() {
 
                 val orders = response.body()?.data as ArrayList<OrderData> // 获取订单数据，这里假设有一个 getOrders() 方法返回订单列表
                 val filteredOrders = orders.filter { it.status == 0 }
-                mybuyAdapter = MyBuyAdapter(filteredOrders)
+                mybuyAdapter = MyBuyAdapter(filteredOrders, this@UnconfirmedFragment)
                 binding.recyclerViewUnconfirmedOrders.adapter = mybuyAdapter
                 binding.recyclerViewUnconfirmedOrders.layoutManager = LinearLayoutManager(requireContext())
             }

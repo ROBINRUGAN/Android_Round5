@@ -53,7 +53,7 @@ class SellRejectedFragment : Fragment() {
 
                 val orders = response.body()?.data as ArrayList<OrderData> // 获取订单数据，这里假设有一个 getOrders() 方法返回订单列表
                 val filteredOrders = orders.filter { it.status == -1 }
-                mySellAdapter = MySellAdapter(filteredOrders)
+                mySellAdapter = MySellAdapter(filteredOrders, this@SellRejectedFragment)
                 binding.sellRecyclerViewRejectedOrders.adapter = mySellAdapter
                 binding.sellRecyclerViewRejectedOrders.layoutManager = LinearLayoutManager(requireContext())
             }

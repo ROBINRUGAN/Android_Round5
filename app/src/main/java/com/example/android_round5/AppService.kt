@@ -130,6 +130,15 @@ interface AppService {
     @Headers("Content-Type: application/json")
     fun Money(@Body body: RequestBody): retrofit2.Call<DetailAddData>
 
+    /**
+     * 支付订单
+     */
+    @PUT("/order/pay")
+    @FormUrlEncoded
+    fun PayOrder(
+        @Field("id") id: String,
+    ): retrofit2.Call<BidOrderData>
+
 //    @POST("register")
 //    @Headers("Content-Type: application/json")
 //    fun getregister(@Body body: RequestBody): retrofit2.Call<Register>

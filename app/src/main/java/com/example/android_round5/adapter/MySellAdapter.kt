@@ -5,12 +5,14 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
 import android.widget.TextView
+import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.RecyclerView
 import com.example.android_round5.R
 import com.example.android_round5.entity.OrderData
+import com.example.android_round5.ui.mysell.SellAllFragment
 
 
-class MySellAdapter(private val orders: List<OrderData>) :
+class MySellAdapter(private val orders: List<OrderData>, val fragment: Fragment) :
     RecyclerView.Adapter<MySellAdapter.OrderViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): OrderViewHolder {

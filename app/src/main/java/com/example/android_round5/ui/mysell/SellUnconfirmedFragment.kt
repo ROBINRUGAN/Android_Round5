@@ -10,7 +10,6 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.android_round5.AppService
 import com.example.android_round5.TokenInterceptor
 import com.example.android_round5.adapter.MySellAdapter
-import com.example.android_round5.databinding.FragmentUnconfirmedBinding
 import com.example.android_round5.databinding.SellFragmentUnconfirmedBinding
 import com.example.android_round5.entity.OrderData
 import com.example.android_round5.entity.OrderList
@@ -54,7 +53,7 @@ class SellUnconfirmedFragment : Fragment() {
 
                 val orders = response.body()?.data as ArrayList<OrderData> // 获取订单数据，这里假设有一个 getOrders() 方法返回订单列表
                 val filteredOrders = orders.filter { it.status == 0 }
-                mySellAdapter = MySellAdapter(filteredOrders)
+                mySellAdapter = MySellAdapter(filteredOrders, this@SellUnconfirmedFragment)
                 binding.sellRecyclerViewUnconfirmedOrders.adapter = mySellAdapter
                 binding.sellRecyclerViewUnconfirmedOrders.layoutManager = LinearLayoutManager(requireContext())
             }

@@ -7,7 +7,6 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.android_round5.AppService
 import com.example.android_round5.TokenInterceptor
@@ -55,7 +54,7 @@ class AllFragment : Fragment() {
 
                 val orders = response.body()?.data as ArrayList<OrderData> // 获取订单数据，这里假设有一个 getOrders() 方法返回订单列表
                 Log.d("MEWWW", orders.toString())
-                mybuyAdapter = MyBuyAdapter(orders)
+                mybuyAdapter = MyBuyAdapter(orders,this@AllFragment)
                 binding.recyclerViewAllOrders.adapter = mybuyAdapter
                 binding.recyclerViewAllOrders.layoutManager = LinearLayoutManager(requireContext())
             }

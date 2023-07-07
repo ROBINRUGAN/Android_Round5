@@ -10,9 +10,7 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.android_round5.AppService
 import com.example.android_round5.TokenInterceptor
-import com.example.android_round5.adapter.MyBuyAdapter
 import com.example.android_round5.adapter.MySellAdapter
-import com.example.android_round5.databinding.FragmentAllBinding
 import com.example.android_round5.databinding.SellFragmentAllBinding
 import com.example.android_round5.entity.OrderData
 import com.example.android_round5.entity.OrderList
@@ -56,7 +54,7 @@ class SellAllFragment : Fragment() {
 
                 val orders = response.body()?.data as ArrayList<OrderData> // 获取订单数据，这里假设有一个 getOrders() 方法返回订单列表
                 Log.d("MEWWW", orders.toString())
-                mySellAdapter = MySellAdapter(orders)
+                mySellAdapter = MySellAdapter(orders,this@SellAllFragment)
                 binding.sellRecyclerViewAllOrders.adapter = mySellAdapter
                 binding.sellRecyclerViewAllOrders.layoutManager = LinearLayoutManager(requireContext())
             }

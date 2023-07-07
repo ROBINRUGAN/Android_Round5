@@ -56,7 +56,7 @@ class SellUnpaidFragment : Fragment() {
 
 
                 val filteredOrders = orders.filter { it.status == 2 }
-                mySellAdapter = MySellAdapter(filteredOrders)
+                mySellAdapter = MySellAdapter(filteredOrders, this@SellUnpaidFragment)
                 binding.sellRecyclerViewUnpaidOrders.adapter = mySellAdapter
                 binding.sellRecyclerViewUnpaidOrders.layoutManager = LinearLayoutManager(requireContext())
             }
