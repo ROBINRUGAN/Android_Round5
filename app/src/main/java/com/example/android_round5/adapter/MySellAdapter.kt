@@ -111,6 +111,68 @@ class MySellAdapter(private val orders: List<OrderData>, val fragment: Fragment)
             val dialog = builder.create()
             dialog.show()
         }
+        holder.itemView.findViewById<Button>(R.id.failBtn).setOnClickListener {
+            // 创建一个 AlertDialog.Builder 对象
+            val builder = AlertDialog.Builder(fragment.context!!)
+
+            // 设置对话框的标题和消息
+            builder.setTitle("驳回订单")
+            builder.setMessage("请确认是否驳回该笔订单")
+            // 设置对话框的按钮和点击事件
+            builder.setPositiveButton("确认") { dialog, which ->
+
+                javaAppService.ConfirmOrder(order.id,-1).enqueue(object :
+                    Callback<BidOrderData> {
+                    override fun onFailure(call: Call<BidOrderData>, t: Throwable) {
+                        t.printStackTrace()
+                    }
+
+                    override fun onResponse(
+                        call: Call<BidOrderData>,
+                        response: Response<BidOrderData>
+                    ) {
+
+                        Log.d("MEWWW", response.code().toString() + response.message())
+                        /*******************      封装好的错误处理      ******************/
+                        /**************************************************************/
+                        if (response.body() == null) {
+                            val errorConverter: Converter<ResponseBody, BidOrderData> =
+                                javaRetrofit.responseBodyConverter(
+                                    BidOrderData::class.java,
+                                    arrayOfNulls(0)
+                                )
+
+                            val errorResponse: BidOrderData? =
+                                errorConverter.convert(response.errorBody()!!)
+                            val temp = response.errorBody()!!.string()
+                            Log.d("MEWWW", temp)
+                            if (errorResponse != null) {
+                                Toast.makeText(
+                                    fragment.context,
+                                    "errorResponse.msg",
+                                    Toast.LENGTH_SHORT
+                                ).show()
+
+                            }
+                        }
+                        if (response.body() != null) {
+                            Toast.makeText(
+                                fragment.context,
+                                response.body()!!.msg,
+                                Toast.LENGTH_SHORT
+                            ).show()
+                        }
+                        /**************************************************************/
+                    }
+                })
+            }
+            builder.setNegativeButton("取消") { dialog, which ->
+                dialog.dismiss()
+            }
+            // 创建并显示 AlertDialog
+            val dialog = builder.create()
+            dialog.show()
+        }
         holder.bind(order)
 
         if (order.status == 2) {
