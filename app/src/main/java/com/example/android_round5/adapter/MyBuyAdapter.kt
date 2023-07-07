@@ -56,10 +56,8 @@ class MyBuyAdapter(private val orders: List<OrderData>, val fragment: Fragment) 
             val builder = AlertDialog.Builder(fragment.context!!)
 
             // 设置对话框的标题和消息
-            builder.setTitle("输入出价")
-            builder.setMessage("请输入出价金额：")
-
-
+            builder.setTitle("支付订单")
+            builder.setMessage("请确认是否支付该笔订单")
             // 设置对话框的按钮和点击事件
             builder.setPositiveButton("确认") { dialog, which ->
 

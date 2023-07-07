@@ -139,6 +139,16 @@ interface AppService {
         @Field("id") id: String,
     ): retrofit2.Call<BidOrderData>
 
+    /**
+     * 卖家确认
+     */
+    @PUT("/order/deal")
+    @FormUrlEncoded
+    fun ConfirmOrder(
+        @Field("id") id: String,
+        @Field("status") status: Int,
+    ): retrofit2.Call<BidOrderData>
+
 //    @POST("register")
 //    @Headers("Content-Type: application/json")
 //    fun getregister(@Body body: RequestBody): retrofit2.Call<Register>
