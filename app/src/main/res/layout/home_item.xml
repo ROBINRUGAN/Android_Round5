@@ -3,10 +3,9 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
+    android:paddingBottom="15dp"
     android:background="@mipmap/home_box"
     android:orientation="vertical">
-    <!--图片或视频区域，这个地方我还没改好，我的item背景是设置成圆角的，但是这里图片显示的时候盖住了那个圆角，所以显示出来的是直角，后面有时间再改改-->
-    <!--标题区域,最大行数为2-->
 
     <androidx.cardview.widget.CardView
         android:layout_width="wrap_content"
@@ -20,20 +19,21 @@
         <ImageView
             android:id="@+id/home_item_img"
             android:layout_width="160dp"
+            android:scaleType="centerCrop"
             android:layout_height="160dp"
             android:src="@color/purple_500" />
     </androidx.cardview.widget.CardView>
 
 
     <TextView
+        android:maxLines="1"
+        android:ellipsize="end"
         android:id="@+id/home_item_title"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginLeft="10dp"
         android:layout_marginRight="10dp"
         android:layout_marginBottom="8dp"
-
-        android:maxLines="2"
         android:text="这是MewStore的商品简介"
         android:textColor="#333" />
 
@@ -87,9 +87,9 @@
             android:layout_weight="1"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="10dp"
             app:cardCornerRadius="20dp">
             <ImageView
+                android:scaleType="centerCrop"
                 android:id="@+id/home_item_avatar"
                 android:layout_width="30dp"
                 android:layout_height="30dp"
@@ -124,5 +124,29 @@
 
                 android:textSize="8dp" />
 
+    </LinearLayout>
+    <LinearLayout
+        android:id="@+id/admin_good_btns"
+        android:weightSum="2"
+        android:visibility="gone"
+        android:gravity="bottom|center"
+        android:layout_marginTop="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <Button
+            android:layout_width="70dp"
+            android:background="@mipmap/detail_btn"
+            android:layout_height="35dp"
+            android:layout_marginLeft="10dp"
+            android:layout_weight="1"
+            android:text="通过"/>
+        <Button
+            android:background="@mipmap/detail_btn"
+            android:layout_width="70dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:layout_height="35dp"
+            android:layout_weight="1"
+            android:text="拒绝"/>
     </LinearLayout>
 </LinearLayout>

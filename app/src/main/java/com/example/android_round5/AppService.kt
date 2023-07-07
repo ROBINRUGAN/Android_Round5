@@ -149,6 +149,22 @@ interface AppService {
         @Field("status") status: Int,
     ): retrofit2.Call<BidOrderData>
 
+    /**
+     * 管理员获取审核商品
+     */
+    @GET("/admin/goods")
+    fun AdminGetGood(): retrofit2.Call<HomeList>
+
+    /**
+     * 管理员审核商品
+     */
+    @PUT("good/verify")
+    @FormUrlEncoded
+    fun AdminPocessGood(
+        @Field("id") id: String,
+        @Field("status") status: Int,
+    ): retrofit2.Call<HomeList>
+
 //    @POST("register")
 //    @Headers("Content-Type: application/json")
 //    fun getregister(@Body body: RequestBody): retrofit2.Call<Register>

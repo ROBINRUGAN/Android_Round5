@@ -53,6 +53,8 @@
         android:layout_height="wrap_content"
         android:padding="8dp"
         app:cardCornerRadius="100dp"
+
+        app:cardBackgroundColor="#00FFFFFF"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.05"
@@ -61,10 +63,12 @@
         app:layout_constraintVertical_bias="0.12">
 
         <ImageView
+            android:background="@android:color/transparent"
             android:id="@+id/me_avatar"
             android:layout_width="90dp"
+            android:scaleType="centerCrop"
             android:layout_height="90dp"
-            android:src="@mipmap/me_avatar" />
+            />
     </androidx.cardview.widget.CardView>
 
 
@@ -74,7 +78,7 @@
         android:layout_height="wrap_content"
         android:layout_marginLeft="120dp"
         android:singleLine="true"
-        android:text="闲猫吃咸鱼"
+        android:text=""
         android:textSize="30dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -90,7 +94,7 @@
         android:layout_marginLeft="120dp"
         android:width="280dp"
         android:singleLine="true"
-        android:text="MEWWW"
+        android:text=""
         android:textSize="20dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -130,7 +134,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="192dp"
         android:layout_marginBottom="53dp"
-        android:text="123.41"
+        android:text=""
         android:textColor="#FF0000"
         android:textSize="35dp"
         app:layout_constraintBottom_toTopOf="@+id/linearLayout"

@@ -107,6 +107,10 @@ class MeFragment : Fragment() {
             val intent = android.content.Intent(activity, MySellActivity::class.java)
             startActivity(intent)
         }
+        binding.meAdminGoods.setOnClickListener {
+            val intent = android.content.Intent(activity, AdminGoodsActivity::class.java)
+            startActivity(intent)
+        }
         binding.topup.setOnClickListener {
             // 创建一个 AlertDialog.Builder 对象
             val builder = AlertDialog.Builder(context!!)
