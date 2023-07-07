@@ -1,5 +1,6 @@
 package com.example.android_round5.adapter
 
+import android.content.Intent
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -8,6 +9,7 @@ import android.widget.TextView
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
+import com.example.android_round5.ChatroomActivity
 import com.example.android_round5.R
 import com.example.android_round5.entity.ChatListData
 
@@ -15,7 +17,7 @@ import com.example.android_round5.entity.ChatListData
  * 首页的商品列表适配器
  * @author MEWWW
  */
-class MessageItemAdapter(val messageItemList: List<ChatListData>, val fragment: Fragment) :
+class MessageItemAdapter(val chatItemList: List<ChatListData>, val fragment: Fragment) :
     RecyclerView.Adapter<MessageItemAdapter.ViewHolder>() {
     /**
      * 内部类用来绑定数据
@@ -34,22 +36,20 @@ class MessageItemAdapter(val messageItemList: List<ChatListData>, val fragment: 
         /**
          * TODO:这个是点击item时能获取到相应下标
          */
-//        viewHolder.itemView.setOnClickListener
-//            val position = viewHolder.bindingAdapterPosition
-//            val project = projectList[position]
+        viewHolder.itemView.setOnClickListener{
+            val position = viewHolder.bindingAdapterPosition
+            val chatItem = chatItemList[position]
 
-        /**
-         * TODO:这个是进入商品详情页的跳转
-         */
-//            val intent = Intent(view.context,DetailActivity::class.java)
-//            intent.putExtra("project.title",project.title)
-//            intent.putExtra("project.imageurl",project.imageurl)
-//            intent.putExtra("project.content",project.content)
-//            intent.putExtra("project.price",project.price)
-//            intent.putExtra("project.telephone",project.telephone)
-//            intent.putExtra("project.id",project.id)
-//            intent.putExtra("user.id",project.userid)
-//            view.context.startActivity(intent)
+
+            val intent = Intent(view.context,ChatroomActivity::class.java)
+            intent.putExtra("messageItem.nickname",chatItem.person_nickname)
+            intent.putExtra("messageItem.profile_photo",chatItem.person_profile_photo)
+            intent.putExtra("messageItem.id",chatItem.person_id)
+            view.context.startActivity(intent)
+        }
+
+
+
         return viewHolder
     }
 
@@ -58,7 +58,7 @@ class MessageItemAdapter(val messageItemList: List<ChatListData>, val fragment: 
      */
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         holder.setIsRecyclable(false)
-        val messageItem = messageItemList[position]
+        val messageItem = chatItemList[position]
         holder.time.text = messageItem.last_message_time
         holder.content.text = messageItem.last_message
         holder.username.text = messageItem.person_nickname
@@ -68,7 +68,7 @@ class MessageItemAdapter(val messageItemList: List<ChatListData>, val fragment: 
     /**
      * 获取商品数量
      */
-    override fun getItemCount() = messageItemList.size
+    override fun getItemCount() = chatItemList.size
     override fun getItemId(position: Int): Long {
         return position.toLong()
     }

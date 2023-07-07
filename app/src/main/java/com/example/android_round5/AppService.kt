@@ -171,6 +171,22 @@ interface AppService {
     @GET("/chat/list")
     fun GetChatList(): retrofit2.Call<ChatList>
 
+    /**
+     * 获取历史记录
+     */
+    @GET("/chat/history")
+    fun GetChatHistory(
+        @Query("send_id") send_id: String
+    ): retrofit2.Call<MessageList>
+
+    /**
+     * 消息已读
+     */
+    @PUT("/chat/read")
+    @Headers("Content-Type: application/json")
+    fun ReadMessage(@Body body: RequestBody): retrofit2.Call<DetailAddData>
+
+
 
 //    @POST("register")
 //    @Headers("Content-Type: application/json")

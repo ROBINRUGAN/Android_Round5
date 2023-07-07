@@ -8,4 +8,8 @@
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
     <color name="mew_store_words_color">#4276B0</color>
+    <color name="buyer_message_text_color">#FFFFFF</color>
+    <color name="seller_message_text_color">#000000</color>
+    <color name="bg_seller_message">#FFFFFF</color>
+    <color name="bg_buyer_message">#1976D2</color>
 </resources>

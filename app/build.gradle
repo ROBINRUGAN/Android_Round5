@@ -59,6 +59,8 @@ dependencies {
     implementation 'androidx.preference:preference:1.1.1'
     implementation 'androidx.viewpager2:viewpager2:1.0.0'
     implementation 'com.github.chrisbanes:PhotoView:2.3.0'
+    implementation 'org.greenrobot:eventbus:3.2.0'
+    implementation 'io.socket:socket.io-client:2.1.0'
     implementation 'androidx.activity:activity:1.6.1'
     annotationProcessor 'com.github.bumptech.glide:compiler:4.11.0'
     annotationProcessor 'androidx.annotation:annotation:1.0.0'

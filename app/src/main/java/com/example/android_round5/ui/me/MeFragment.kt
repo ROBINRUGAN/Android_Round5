@@ -77,6 +77,12 @@ class MeFragment : Fragment() {
                     }
                 }
                 if (userInfo != null) {
+                    // 存储id
+                    val sharedPreferences = context!!.getSharedPreferences("my_app_prefs", Context.MODE_PRIVATE)
+                    val editor = sharedPreferences.edit()
+                    editor.putString("id", userInfo.user.id)
+                    editor.apply()
+
                     Toast.makeText(context, userInfo.message, Toast.LENGTH_SHORT).show()
                     binding.meUsername.text = userInfo.user.username
                     binding.meNickname.text = userInfo.user.nickname

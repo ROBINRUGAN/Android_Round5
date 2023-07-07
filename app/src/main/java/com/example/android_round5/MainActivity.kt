@@ -1,23 +1,32 @@
 package com.example.android_round5
 
+import android.content.Context
+import android.content.SharedPreferences
 import android.os.Bundle
-import android.view.Gravity
-import android.view.View
-import android.view.ViewGroup
-import android.widget.FrameLayout
+import android.util.Log
+import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.findNavController
 import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.setupWithNavController
 import com.example.android_round5.databinding.ActivityMainBinding
+import com.example.android_round5.entity.MessageReceipt
 import com.google.android.material.bottomnavigation.BottomNavigationItemView
 import com.google.android.material.bottomnavigation.BottomNavigationView
+import com.google.android.material.snackbar.Snackbar
+import com.google.gson.Gson
 import kotlinx.android.synthetic.main.activity_main.view.*
+import io.socket.client.IO
+import io.socket.client.Socket
+import okhttp3.OkHttpClient
+import org.greenrobot.eventbus.EventBus
+import org.greenrobot.eventbus.Subscribe
+import org.greenrobot.eventbus.ThreadMode
+import java.util.concurrent.TimeUnit
 
 class MainActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityMainBinding
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
@@ -41,18 +50,11 @@ class MainActivity : AppCompatActivity() {
         // 去除菜单项图标的着色效果
         navView.itemIconTintList = null
 //获取中间的itemView
-        val itemView: BottomNavigationItemView = binding.navView.findViewById(R.id.navigation_upload)
-
-
-
+        val itemView: BottomNavigationItemView =
+            binding.navView.findViewById(R.id.navigation_upload)
 //修改未选中时的图标大小
         itemView.setShifting(false)
         itemView.setIconSize(150)
-
-
-
-
-
 
         val appBarConfiguration = AppBarConfiguration(
             setOf(
@@ -67,4 +69,5 @@ class MainActivity : AppCompatActivity() {
 
 
     }
+
 }

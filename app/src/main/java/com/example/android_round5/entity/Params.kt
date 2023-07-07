@@ -22,7 +22,7 @@ data class UserInfo(
 )
 
 data class UserInfoUser(
-    val id: Long,
+    val id: String,
     val id_card: String,
     val money: String,
     val name: String,
@@ -100,4 +100,36 @@ data class ChatListData(
     val person_id: String,
     val person_nickname: String,
     val person_profile_photo: String
+)
+
+data class MessageList(
+    val code: Int,
+    val `data`: List<MessageListData>,
+    val message: String
+)
+
+data class MessageListData(
+    val message: String,
+    val message_id: String,
+    val receive_id: String,
+    val send_id: String,
+    val send_time: String,
+    val type: Int
+)
+
+data class MessageReceipt(
+    val code: Int,
+    val message: String,
+    val message_id: String,
+    val receive_id: String,
+    val send_id: String,
+    val send_time: String,
+    val user_id: String,
+    val type: Int
+)
+
+data class SendData(
+    val message: String,
+    val receive_id: String,
+    val type: Int
 )

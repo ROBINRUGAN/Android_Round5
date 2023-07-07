@@ -21,7 +21,15 @@
         android:theme="@style/Theme.Android_Round5"
         android:usesCleartextTraffic="true"
         android:windowSoftInputMode="adjustNothing"
-        tools:targetApi="31">
+        tools:targetApi="33">
+        <activity
+            android:name=".ChatroomActivity"
+            android:exported="false"
+            android:windowSoftInputMode="adjustNothing">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
         <activity
             android:name=".AdminGoodsActivity"
             android:exported="false">
